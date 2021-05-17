@@ -1,22 +1,31 @@
 import React from 'react'
 import './App.css';
+import { connect } from 'react-redux';
+import CategoriesContainer from './containers/CategoriesContainer'
+import {fetchCategories} from './actions/fetchCategories'
+import {fetchItems} from './actions/fetchItems'
 
 class App extends React.Component{
 
-  // componentDidMount() {
-  //   fetch('http://localhost:3000/api/v1/items', {
-  //     method: 'GET'
-  //   })
-  //   .then(response => response.json())
-  //   .then(data => console.log(data))
-  // }
+  componentDidMount() {
+    // this.props.fetchItems()
+  }
+
   render(){
      return (
       <div className="App">
-        App
+        <CategoriesContainer />
       </div>
       );
   }
 }
 
+// mapStateToProps = () => {
+//   return {
+//     items: state.items 
+//   }
+// }
+
+//connects react to redux store, automatically calls store.dispatch
+// export default connect()(App);
 export default App;
