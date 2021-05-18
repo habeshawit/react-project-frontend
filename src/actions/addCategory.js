@@ -9,6 +9,11 @@ export const addCategory = (data) =>{
             method: 'POST',
             body: JSON.stringify(data)
         })
+        .then(response => response.json())
+        .then(category => dispatch({
+            type: 'ADD_CATEGORY',
+            payload: category
+        }))
     }
 
 }
