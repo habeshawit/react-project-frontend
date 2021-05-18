@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux';
-import {Route} from 'react-router-dom'
+import {Route, Switch} from 'react-router-dom'
 import { fetchCategories } from '../actions/fetchCategories'
 import Categories from '../components/Categories'
 import Category from '../components/Category'
@@ -13,12 +13,15 @@ class CategoriesContainer extends React.Component {
         this.props.fetchCategories()
     }
 
+    //switch will render the first route that matches the given path
     render(){
         return(
             <div>
-                <Route path='/categories/new' component = {CategoryInput}/>
-                <Route path='/categories/:id' render={(routerProps) => <Category {...routerProps} categories={this.props.categories}/>}/>
-                <Route exact path='/categories' render={(routerProps) => <Categories {...routerProps} categories={this.props.categories}/>} />
+                <Switch> 
+                    <Route path='/categories/new' component = {CategoryInput}/>
+                    <Route path='/categories/:id' render={(routerProps) => <Category {...routerProps} categories={this.props.categories}/>}/>
+                    <Route path='/categories' render={(routerProps) => <Categories {...routerProps} categories={this.props.categories}/>} />
+                </Switch>
                 
             </div>
         )
