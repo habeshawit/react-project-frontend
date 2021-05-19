@@ -2,7 +2,7 @@
 
 import React from 'react'
 
-const Items = (props) => {
+const AllItems = (props) => {
 
     const renderItem =(items) =>{
         return(
@@ -34,5 +34,5 @@ const Items = (props) => {
     )
 }
 
-export default Items;
+export default AllItems;
 
