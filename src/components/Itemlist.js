@@ -3,26 +3,38 @@
 import React from 'react'
 import {Route, Link} from 'react-router-dom'
 
+
 const Itemlist = (props) => {
 
     // debugger
     const renderItem =(categories) =>{
+
+
         return(
-            <div>
+            
+            <div class="container">
                 {categories.map((category, index) => (
-                    <div key={index}>
-                        <hr />
+                    <div>
+                        <hr></hr>
                         <h1>{category.name}</h1>
+                    <div className= "row row-cols-1 row-cols-md-4 g-4" key={index}>
+                        {/* <hr /> */}
+                        
                         {category.items.map((item, i) => (
-                        <div key={i}>
-                            <Link to={`/items/${item.name}`}><img src={item.image_url} className="card-img-top" alt="..." id="image-box" data-toggle="modal" data-target="#exampleModalScrollable" data-id={item.id} width="350" height="350"></img></Link>
+                            <div className="col">
+                        <div className = "card h-100" key={i}>
+                        <h4>{item.name}</h4>
+                            <Link to={`/items/${item.name}`}><img src={item.image_url}  width="300" height="300"></img></Link>
                             
-                            <h3>{item.name}</h3>
                             
+                            
+                        </div>
                         </div>
                         ))}
                     </div>
+                    </div>
                     ))}
+                    
                 </div>
         )
         

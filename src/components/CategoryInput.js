@@ -21,9 +21,19 @@ class CategoryInput extends React.Component {
     }
 
     render(){
+        const sectionStyle = {
+            // backgroundImage:
+                // "url(https://wildheartmedia.com/wp-content/uploads/2016/06/blog-categories-and-tags-1200x675.png)",
+            backgroundPosition: "center",
+            backgroundSize: "cover",
+            backgroundRepeat: "no-repeat",
+            height: "700px",
+            width: "1500px"
+        };
         return(
-            <div>
+            <div style={sectionStyle}>
                 <form onSubmit={this.handleSubmit}>
+                    <h1>Create a new category</h1>
                     <label>Category Name: </label>
                     <input type='text' placeholder="Name" value={this.state.name} name="name" onChange={this.handleChange}/>
                     <input type='submit'/>

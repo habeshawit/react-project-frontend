@@ -8,7 +8,7 @@ const Category = (props) => {
     // let category = props.categories.filter(category => category.id == props.match.params.id)[0]
 
     return (
-        <div>
+        <div className="container">
            <h1>
                {/* {category ? null : <Redirect to='/categories'/>} */}
                {category ? category.name : null}
