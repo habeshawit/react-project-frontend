@@ -11,9 +11,9 @@ export const addItem = (item, categoryId) =>{
             body: JSON.stringify(item)
         })
         .then(response => response.json())
-        .then(item => dispatch({
+        .then(category => dispatch({
             type: 'ADD_ITEM',
-            payload: item
+            payload: category
         }))
         // debugger
     }
