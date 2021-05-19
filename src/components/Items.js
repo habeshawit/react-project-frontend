@@ -10,7 +10,7 @@ const Items = (props) => {
                 {items.map(item => 
                     <div key={item.id}>
                         <h4>{item.name}</h4>
-                        <img src={item.image_url} class="card-img-top" alt="..." id="image-box" data-toggle="modal" data-target="#exampleModalScrollable" data-id={item.id} width="350" height="350"></img>
+                        <img src={item.image_url} className="card-img-top" alt="..." id="image-box" data-toggle="modal" data-target="#exampleModalScrollable" data-id={item.id} width="350" height="350"></img>
                         <ul>
                             <li>Item description:  {item.description}</li>
                             <li>Quantity in stock: {item.qty}</li>

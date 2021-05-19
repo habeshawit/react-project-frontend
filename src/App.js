@@ -1,10 +1,12 @@
 import React from 'react'
 import './App.css';
+import Itemlist from './components/Itemlist';
+import ItemlistContainer from './containers/ItemlistContainer';
 // import { connect } from 'react-redux';
 import CategoriesContainer from './containers/CategoriesContainer'
 import ItemsContainer from './containers/ItemsContainer'
 // import {fetchCategories} from './actions/fetchCategories'
-// import {fetchItems} from './actions/fetchItems'
+// import {fetchItems} from './actions/fetchItemlists'
 
 class App extends React.Component{
 
@@ -13,6 +15,7 @@ class App extends React.Component{
       <div className="App">
         <CategoriesContainer />
         {/* <ItemsContainer /> */}
+        <ItemlistContainer/>
       </div>
       );
   }

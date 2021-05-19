@@ -5,6 +5,7 @@ import thunk from 'redux-thunk';
 import { Provider } from 'react-redux';
 import {BrowserRouter as Router} from 'react-router-dom'
 import categoryReducer from './reducers/categoryReducer'
+import itemlistReducer from './reducers/categoryReducer'
 
 import './index.css';
 import App from './App';

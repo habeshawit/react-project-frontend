@@ -1,7 +1,8 @@
 import React from 'react'
 import ItemInput from '../components/ItemInput'
 import Items from '../components/Items'
-import AllItems from '../components/Items'
+import Itemlist from '../components/Itemlist'
+import ItemForm from '../components/ItemForm'
 import {Route, Switch} from 'react-router-dom'
 
 class ItemsContainer extends React.Component{
@@ -11,8 +12,8 @@ class ItemsContainer extends React.Component{
             <div>
                 <ItemInput category_id={this.props.category && this.props.category.id}/>
                 <Items items={this.props.category && this.props.category.items}/>
-                {/* <AllItems items={this.props.items}/> */}
-                {/* <Route path='/items' render={() => <AllItems items={this.props}/>} /> */}
+                {/* <Route path='/items/new' render={(routerProps) => <ItemForm {...routerProps} categories={this.props.categories}/>} />
+                <Route path='/items' render={(routerProps) => <Itemlist {...routerProps} categories={this.props.categories}/>} /> */}
             </div>
         )
     }
