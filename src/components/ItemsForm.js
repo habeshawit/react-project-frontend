@@ -25,7 +25,7 @@ class ItemsForm extends Component{
     handleSubmit = (event) => {
         // debugger
         event.preventDefault()
-        this.props.createItem(this.state)
+        this.props.createItem(this.state, this.props.history)
         this.setState({
             category_id: 2,
             name: '',
@@ -34,6 +34,7 @@ class ItemsForm extends Component{
             price: '',
             image_url: ''
         })
+        // this.props.history.push("/items")
     }
 
     render(){

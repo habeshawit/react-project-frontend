@@ -12,17 +12,7 @@ export const getItems = () => {
     }
 }
 
-export const createItem = newItemData =>{
-    // return(dispatch) => {
-    //     fetch('http://localhost:3000/api/v1/items'), {
-    //         method: 'POST',
-    //         headers: {
-    //             Accepts: 'application/json',
-    //             'Content-Type': 'application/json'
-    //         },
-    //         body: JSON.stringify({ item: newItemData}),
-    //     }
-    // }
+export const createItem = (newItemData, history) =>{
     return(dispatch) => {
         
         fetch('http://localhost:3000/api/v1/items', {
@@ -33,11 +23,19 @@ export const createItem = newItemData =>{
             method: 'POST',
             body: JSON.stringify({item: newItemData})
         })
-        .then(response => response.json())
-        .then(category => dispatch({
-            type: 'CREATE_ITEM',
-            payload: category
-        }))
+        .then((response) => {
+            if(response.ok){
+                return response.json();
+            } else {
+                throw new Error(response.statusText);
+            }
+        })
+        .then((item) => 
+            (dispatch({type: 'CREATE_ITEM', payload: item}),
+            history.push('/items'))
+        )
+        .catch((err) => dispatch({type: "ERROR", payload: ''}))
+        
         // debugger
     }
 }

@@ -5,7 +5,7 @@ export default function SingleItem(props) {
     // debugger
     return (
         <div className="col">
-            <div className = "card h-100" >
+            <div className = "card h-100" key={props.item.id}>
                 <center><h5>{props.item.name}</h5></center>
                 <Link to={`/items/${props.item.name}`}><img src={props.item.image_url}  width="300" height="300"></img></Link>
             </div>
