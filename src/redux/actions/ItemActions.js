@@ -40,5 +40,23 @@ export const createItem = (newItemData, history) =>{
     }
 }
 
-
-
+export const deleteItem = (itemId, history) => {
+    return (dispatch) =>{
+    fetch(`http://localhost:3000/api/v1/items/${itemId}`, {
+        method: 'DELETE'
+    })
+    .then((response) => {
+        if(response.ok){
+            return response.json();
+        } else {
+            throw new Error(response.statusText);
+        }
+    })
+    .then((item) => 
+        (dispatch({type: 'DELETE_ITEM', payload: item}),
+        history.push('/items'))
+    )
+    .catch((err) => dispatch({type: "ERROR", payload: ''}))
+    
+    }
+}

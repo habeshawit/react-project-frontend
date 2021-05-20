@@ -1,15 +1,28 @@
 import React from 'react'
 import {Route, Link} from 'react-router-dom'
 
-export default function SingleItem(props) {
-    // 
+import {deleteItem, getItems} from '../redux/actions/ItemActions'
+import { connect } from 'react-redux'
+import { useHistory } from 'react-router-dom'
+
+function SingleItem(props) {
+    const history =useHistory();
+
+    const handleDelete = () =>{
+        props.deleteItem(props.item.id, history)
+        props.getItems()
+    }
+
     return (
         <div className="col">
             <div className = "card h-100" key={props.item.id}>
                 <center><h5>{props.item.name}</h5></center>
                 <Link to={`/items/${props.item.id}`}><img src={props.item.image_url}  width="300" height="300"></img></Link>
+                <button onClick={handleDelete}>Delete</button>
             </div>
         </div>
         
     )
 }
+
+export default connect(null, { deleteItem, getItems})(SingleItem)

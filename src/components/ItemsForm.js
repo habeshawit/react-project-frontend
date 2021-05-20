@@ -52,7 +52,6 @@ class ItemsForm extends Component{
 
         return(
             <div>
-                {console.log(this.props.categories)}
                 <strong>Add new item2:</strong><hr></hr>
               <div>
                 <form onSubmit={this.handleSubmit}>

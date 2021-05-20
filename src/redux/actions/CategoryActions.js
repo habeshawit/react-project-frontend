@@ -28,6 +28,7 @@ export const getCategory = (CategoryId) => {
 }
 
 export const createCategory = (newCategoryData, history) =>{
+    debugger
     return(dispatch) => {
         
         fetch('http://localhost:3000/api/v1/categories', {
