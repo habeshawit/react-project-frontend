@@ -13,6 +13,11 @@ import ItemsList from './components/ItemsList'
 import ItemsForm from './components/ItemsForm'
 import ItemsApi from './components/ItemsApi'
 import ItemShow from './components/ItemShow';
+import CategoriesList from './components/CategoriesList';
+import CategoryForm from './components/CategoryForm'
+import CategoryShow from './components/CategoryShow'
+
+
 
 //comment back
 // class App extends React.Component{
@@ -44,6 +49,9 @@ function App(){
         <Route path='/items/new' component={ItemsForm}/>
         <Route path="/items/:id" component={ItemShow} />
         <Route path='/items/api' component={ItemsApi}/>
+        <Route exact path='/categories' component={CategoriesList}/>
+        <Route path='/categories/new' component={CategoryForm}/>
+        <Route path="/categories/:id" component={CategoryShow} />
       </Switch>
       
     </div>

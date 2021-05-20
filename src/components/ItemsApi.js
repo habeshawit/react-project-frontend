@@ -18,7 +18,7 @@ export default class ItemsApi extends Component{
     }
 
     render() {
-        // debugger
+        // 
         return(
             
             <div className="container">    

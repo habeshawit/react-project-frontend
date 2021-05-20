@@ -15,7 +15,7 @@ export const addItem = (item, categoryId) =>{
             type: 'ADD_ITEM',
             payload: category
         }))
-        // debugger
+        // 
     }
 
 }

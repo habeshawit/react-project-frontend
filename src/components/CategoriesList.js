@@ -1,13 +1,14 @@
 import React, {Component} from 'react'
-import Categories from './Categories';
-import {getItems} from '../redux/actions/ItemActions'
+// import Categories from './Categories';
+import {getCategories} from '../redux/actions/CategoryActions'
 import {connect} from 'react-redux'
-import SingleItem from '../components/SingleItem'
+import SingleCategory from '../components/SingleCategory'
 
-class ItemsList extends Component {
+class CategoriesList extends Component {
 
     componentDidMount(){
-        this.props.getItems();
+        this.props.getCategories();
+        // 
     }
 
     
@@ -15,15 +16,13 @@ class ItemsList extends Component {
         return (
             <div>
                 <h1>
-                    ItemsList 2                  
+                    CategoryList 2                  
                 </h1>
                 <div className="container">
                     <div className= "row row-cols-1 row-cols-md-4 g-4">
-                        {this.props.items.map(item => <SingleItem item={item}/>)}
+                        {this.props.categories.map(category => <SingleCategory category={category}/>)}
                     </div>
                 </div>
-                
-                
             </div>
         )
     }
@@ -32,10 +31,10 @@ class ItemsList extends Component {
 
 const mapStateToProps = state =>{
     return{
-        items: state.items
+        categories: state.categories
     }
 }
 
 //mapstatetoprops gets the state in our redux store, getItems action will dispatch the action we are importing from itemActions, through componentDidMount
 
-export default connect(mapStateToProps, {getItems})(ItemsList)
+export default connect(mapStateToProps, {getCategories})(CategoriesList)

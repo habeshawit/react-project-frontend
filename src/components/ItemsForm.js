@@ -2,10 +2,15 @@
 
 import React, { Component } from 'react'
 import {createItem} from '../redux/actions/ItemActions'
+import {getCategories} from '../redux/actions/CategoryActions'
 import {connect} from 'react-redux'
 
 class ItemsForm extends Component{
 
+    componentDidMount(){
+        this.props.getCategories();
+    }
+    
     state = {
         category_id: 2,
         name: '',
@@ -19,11 +24,11 @@ class ItemsForm extends Component{
         this.setState({
             [event.target.name]: event.target.value
         })
-        // debugger
+        // 
     }
     
     handleSubmit = (event) => {
-        // debugger
+        // 
         event.preventDefault()
         this.props.createItem(this.state, this.props.history)
         this.setState({
@@ -38,17 +43,25 @@ class ItemsForm extends Component{
     }
 
     render(){
+        // debugger
+        let categories = this.props.categories.length > 0 && this.props.categories.map((category, i) => {
+            return(
+                <option key={i} value={category.id}>{category.name}</option>
+            )
+        },this)
+
         return(
             <div>
-                <strong>Add a new item:</strong><hr></hr>
+                {console.log(this.props.categories)}
+                <strong>Add new item2:</strong><hr></hr>
               <div>
                 <form onSubmit={this.handleSubmit}>
                     <label>Category:</label>
-                    {/* <select name="category_id" onChange={this.handleChange}>
+                    <select name="category_id" onChange={this.handleChange}>
                         {categories}
-                    </select> */}
+                    </select>
                     <br></br><label>Item Name: </label>
-                    <input type='textarea' placeholder="Name" value={this.state.name} name="name" onChange={this.handleChange}/>
+                    <input type='text' placeholder="Name" value={this.state.name} name="name" onChange={this.handleChange}/>
                     <br></br><label>Description: </label>
                     <input type='text' placeholder="Description of item" value={this.state.description} name="description" onChange={this.handleChange}/>
                     <br></br><label>Quantity: </label>
@@ -58,7 +71,7 @@ class ItemsForm extends Component{
                     <br></br><label>Image URL: </label>
                     <input type='text' placeholder="Image URL" value={this.state.image_url} name="image_url" onChange={this.handleChange}/>
 
-                    <hr></hr><button type='submit'>Post Item</button>
+                    <hr></hr><input type='submit'/>
                 </form>
             </div>
             </div>
@@ -66,4 +79,10 @@ class ItemsForm extends Component{
     }
 }
 
-export default connect(null, { createItem})(ItemsForm)
+const mapStateToProps = state =>{
+    return{
+        categories: state.categories
+    }
+}
+
+export default connect(mapStateToProps, { createItem, getCategories})(ItemsForm)

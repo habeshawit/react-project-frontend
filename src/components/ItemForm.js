@@ -19,11 +19,11 @@ class ItemForm extends React.Component {
         this.setState({
             [event.target.name]: event.target.value
         })
-        // debugger
+        // 
     }
     
     handleSubmit = (event) => {
-        // debugger
+        // 
         event.preventDefault()
         this.props.addItem(this.state, this.state.category_id)
         this.setState({
@@ -38,7 +38,7 @@ class ItemForm extends React.Component {
 
     
     render(){
-        // debugger
+        // 
         let categories = this.props.categories.length > 0 && this.props.categories.map((category, i) => {
             return(
                 <option key={i} value={category.id}>{category.name}</option>

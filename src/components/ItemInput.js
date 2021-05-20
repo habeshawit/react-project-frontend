@@ -18,11 +18,11 @@ class ItemInput extends React.Component {
         this.setState({
             [event.target.name]: event.target.value
         })
-        // debugger
+        // 
     }
     
     handleSubmit = (event) => {
-        // debugger
+        // 
         event.preventDefault()
         this.props.addItem(this.state, this.props.category_id)
         this.setState({
@@ -35,7 +35,7 @@ class ItemInput extends React.Component {
     }
     
     render(){
-        // debugger
+        // 
         return(
             <div>
                 <strong>Add a new item:</strong>

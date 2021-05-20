@@ -13,7 +13,7 @@ class ItemlistContainer extends React.Component {
 
 
     componentDidMount() {
-        // debugger
+        // 
         this.props.fetchCategories()
     }
 
@@ -40,7 +40,6 @@ const mapStateToProps = state =>{
     return{
         categories: state.categories
     }
-    debugger
 }
 
 export default connect(mapStateToProps, {fetchCategories})(ItemlistContainer);

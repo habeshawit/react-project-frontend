@@ -6,7 +6,7 @@ import {Route, Link} from 'react-router-dom'
 
 const Itemlist = (props) => {
 
-    // debugger
+    // 
     const renderItem =(categories) =>{
 
 

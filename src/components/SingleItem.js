@@ -2,7 +2,7 @@ import React from 'react'
 import {Route, Link} from 'react-router-dom'
 
 export default function SingleItem(props) {
-    // debugger
+    // 
     return (
         <div className="col">
             <div className = "card h-100" key={props.item.id}>
