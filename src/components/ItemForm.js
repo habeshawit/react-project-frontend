@@ -27,7 +27,7 @@ class ItemForm extends React.Component {
         event.preventDefault()
         this.props.addItem(this.state, this.state.category_id)
         this.setState({
-            category_id: '',
+            category_id: "2",
             name: '',
             description: '',
             qty: '',
@@ -54,10 +54,6 @@ class ItemForm extends React.Component {
                     <select name="category_id" onChange={this.handleChange}>
                         {categories}
                     </select>
-                    {/* <select id="selectNumber">
-    <option>Choose a number</option>
-</select> */}
-                    {/* <input type='text' value={this.props.category_id} name="category_id"/> */}
                     <br></br><label>Item Name: </label>
                     <input type='text' placeholder="Name" value={this.state.name} name="name" onChange={this.handleChange}/>
                     <br></br><label>Description: </label>
