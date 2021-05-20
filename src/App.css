@@ -4,7 +4,7 @@
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 1300px;
   /* background-color: lightgray; */
   padding: 30px;
 }
@@ -107,9 +107,10 @@ footer p {
   background-color: #fff;
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
-  border-radius: 0.25rem;
+  border-radius: 1.25rem;
   /* height: 100%; */
-  border: none
+  /* border: none; */
+  margin-bottom: 25px;
 }
 
 img.card-img-top {
@@ -197,6 +198,10 @@ img.card-text {
   padding-bottom: 0px;
 }
 
+.col{
+  margin-bottom: 25px;
+}
+
 .form{
   max-width:500px;
   margin-left: 35px;
@@ -211,3 +216,4 @@ img.card-text {
   font-family: Arial;
   text-align: center;
 } */
+
