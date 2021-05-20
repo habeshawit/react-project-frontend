@@ -23,7 +23,7 @@ const Item = (props) => {
                         <ul>
                             <li>Item description:  {item.description}</li>
                             <li>Quantity in stock: {item.qty}</li>
-                            <li>Unit Price: {item.price}</li>
+                            <li>Unit Price: ${item.price}</li>
                         </ul>
                         
                     </div>

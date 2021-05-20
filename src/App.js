@@ -11,6 +11,7 @@ import {Switch, Route} from 'react-router-dom'
 import Home2 from './components/Home2'
 import ItemsList from './components/ItemsList'
 import ItemsForm from './components/ItemsForm'
+import ItemsApi from './components/ItemsApi'
 
 //comment back
 // class App extends React.Component{
@@ -40,6 +41,7 @@ function App(){
         <Route exact path='/' component={Home2}/>
         <Route exact path='/items' component={ItemsList}/>
         <Route path='/items/new' component={ItemsForm}/>
+        <Route path='/items/api' component={ItemsApi}/>
       </Switch>
       
     </div>
