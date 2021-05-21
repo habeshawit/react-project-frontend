@@ -37,8 +37,8 @@ class CategoriesShow extends Component {
     renderItems(category){
         return(
             <div className="container">
-            <div className= "row row-cols-1 row-cols-md-4 g-4">
-                <h1>{category.name}</h1>
+            <h1>{category.name}</h1>
+            <div className= "row row-cols-1 row-cols-md-4 g-4">         
                 {category.items.map(item => <SingleItem item={item}/>)}               
             </div>
         </div>

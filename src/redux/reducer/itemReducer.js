@@ -3,9 +3,19 @@ export default (state = [], action) => {
         case 'FETCH_ITEMS':
             return action.payload
         case 'CREATE_ITEM':
-            return [...state, action.payload]
+            {
+                alert(action.payload.message)
+                return [...state, action.payload]
+            }
+            
         case 'DELETE_ITEM':
-            return [...state, action.payload]
+            {alert(action.payload.message)
+            return [...state, action.payload]}
+        case 'ERROR':
+            // 
+            alert(action.payload)
+            return action.payload
+            
             // return{...state, items: [...state, action.payload]}
         default:
             return state;

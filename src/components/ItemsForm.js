@@ -31,6 +31,7 @@ class ItemsForm extends Component{
         // 
         event.preventDefault()
         this.props.createItem(this.state, this.props.history)
+        // this.props.history.push("/items/")
         this.setState({
             category_id: 2,
             name: '',
@@ -39,11 +40,11 @@ class ItemsForm extends Component{
             price: '',
             image_url: ''
         })
-        // this.props.history.push("/items")
+        
     }
 
     render(){
-        // debugger
+        // 
         let categories = this.props.categories.length > 0 && this.props.categories.map((category, i) => {
             return(
                 <option key={i} value={category.id}>{category.name}</option>

@@ -1,12 +1,18 @@
   
 import React, { Component } from "react";
+import {deleteItem} from '../redux/actions/ItemActions'
+import { connect } from 'react-redux'
 
-export default class ItemShow extends Component {
+
+
+class ItemShow extends Component {
   
   state = {
     item: {}
   };
   
+
+
   componentDidMount() {
       
     fetch(`http://localhost:3000/api/v1/items/${this.props.match.params.id}`)
@@ -14,6 +20,11 @@ export default class ItemShow extends Component {
       .then((data) => this.setState({ item: data }));
       
   }
+
+  handleDelete = () =>{
+    this.props.deleteItem(this.state.item.id)
+    this.props.history.push('/items')
+}
 
   render() {
     return (
@@ -26,7 +37,7 @@ export default class ItemShow extends Component {
                         <p>${this.state.item.price}</p>
                         <strong>Description: </strong><p>{this.state.item.description}</p>
                         <p><strong>In Stock: </strong>{this.state.item.qty}</p>
-                        {/* <p><strong>Category:</strong>{this.state.item.category}</p> */}
+                        <button onClick={this.handleDelete}>Delete</button>
                     </div>
                 </div>
             </div>
@@ -34,3 +45,6 @@ export default class ItemShow extends Component {
     );
   }
 }
+
+export default connect(null, { deleteItem})(ItemShow)
+

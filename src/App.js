@@ -16,6 +16,8 @@ import ItemShow from './components/ItemShow';
 import CategoriesList from './components/CategoriesList';
 import CategoryForm from './components/CategoryForm'
 import CategoryShow from './components/CategoryShow'
+import Navbar from './components/Navbar'
+
 
 
 
@@ -40,9 +42,15 @@ import CategoryShow from './components/CategoryShow'
 // /items/:id
 
 
-function App(){
+class App extends React.Component{
+// function App(){
+  render(){
+
+  console.log(this.props);
   return(
     <div className="App">
+      <Navbar/>
+
       <Switch>
         <Route exact path='/' component={Home2}/>
         <Route exact path='/items' component={ItemsList}/>
@@ -55,10 +63,11 @@ function App(){
       </Switch>
       
     </div>
-  )
+    )
+  }
 }
 
-
+// const mapStateToProps = (state) =>{{user: state.user}}
 //connects react to redux store, automatically calls store.dispatch
 // export default connect()(App);
 export default App;

@@ -3,6 +3,7 @@ import Categories from './Categories';
 import {getItems} from '../redux/actions/ItemActions'
 import {connect} from 'react-redux'
 import SingleItem from '../components/SingleItem'
+import CategoriesList from '../components/CategoriesList';
 
 class ItemsList extends Component {
 
@@ -14,12 +15,12 @@ class ItemsList extends Component {
     render(){
         return (
             <div>
-                <h1>
-                    ItemsList 2                  
-                </h1>
+                
                 <div className="container">
+                    <h1>
+                        <CategoriesList />                  
+                    </h1>
                     <div className= "row row-cols-1 row-cols-md-4 g-4">
-                        
                         {this.props.items.map(item => <SingleItem item={item}/>)}
                     </div>
                 </div>

@@ -13,6 +13,7 @@ export const getItems = () => {
 }
 
 export const createItem = (newItemData, history) =>{
+    
     return(dispatch) => {
         
         fetch('http://localhost:3000/api/v1/items', {
@@ -34,29 +35,19 @@ export const createItem = (newItemData, history) =>{
             (dispatch({type: 'CREATE_ITEM', payload: item}),
             history.push('/items'))
         )
-        .catch((err) => dispatch({type: "ERROR", payload: ''}))
-        
-        // 
+        .catch((err) => dispatch({type: 'ERROR', payload: 'Error creating item. Please enter all information correctly'}))
     }
 }
 
-export const deleteItem = (itemId, history) => {
-    return (dispatch) =>{
-    fetch(`http://localhost:3000/api/v1/items/${itemId}`, {
-        method: 'DELETE'
-    })
-    .then((response) => {
-        if(response.ok){
-            return response.json();
-        } else {
-            throw new Error(response.statusText);
-        }
-    })
-    .then((item) => 
-        (dispatch({type: 'DELETE_ITEM', payload: item}),
-        history.push('/items'))
-    )
-    .catch((err) => dispatch({type: "ERROR", payload: ''}))
-    
+export const deleteItem = (itemId) => {
+    return(dispatch) => {
+        
+        fetch(`http://localhost:3000/api/v1/items/${itemId}`, {
+            method: 'DELETE'
+        })
+        .then((res) => res.json())
+        .then((item) => 
+            (dispatch({type: 'DELETE_ITEM', payload: item}))
+        )
     }
 }

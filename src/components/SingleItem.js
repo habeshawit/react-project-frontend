@@ -1,5 +1,5 @@
 import React from 'react'
-import {Route, Link} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 import {deleteItem, getItems} from '../redux/actions/ItemActions'
 import { connect } from 'react-redux'
@@ -9,11 +9,12 @@ function SingleItem(props) {
     const history =useHistory();
 
     const handleDelete = () =>{
-        props.deleteItem(props.item.id, history)
+        props.deleteItem(props.item.id)
         props.getItems()
     }
 
     return (
+        
         <div className="col">
             <div className = "card h-100" key={props.item.id}>
                 <center><h5>{props.item.name}</h5></center>

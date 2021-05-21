@@ -4,6 +4,7 @@ import {getCategories} from '../redux/actions/CategoryActions'
 import {connect} from 'react-redux'
 import SingleCategory from '../components/SingleCategory'
 
+
 class CategoriesList extends Component {
 
     componentDidMount(){
@@ -15,16 +16,10 @@ class CategoriesList extends Component {
     render(){
         return (
             <div>
-                <h1>
-                    CategoryList 2                  
-                </h1>
-                <div className="container">
-                <div className="NavBar">
-                    <div className= "row row-cols-1 row-cols-md-4 g-4">
+                <div className="categoryNav">
+                    <p>
                         {this.props.categories.map(category => <SingleCategory category={category}/>)}
-                    </div>
-                </div>
-                    
+                    </p>
                 </div>
             </div>
         )

@@ -202,6 +202,7 @@ img.card-text {
   margin-bottom: 25px;
 }
 
+
 .form{
   max-width:500px;
   margin-left: 35px;
@@ -217,3 +218,15 @@ img.card-text {
   text-align: center;
 } */
 
+.categoryNav{
+    font-size: large;
+    word-spacing: 1rem;
+    text-decoration: none;
+    
+}
+
+
+/* .categoryNav p:hover, .categoryNav p:active {
+  background-color: green;
+  text-decoration: none;
+} */
