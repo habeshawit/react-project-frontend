@@ -52,7 +52,7 @@
 //             })
 //         }
 //         })
-//         .catch(error => console.log('login api errors:', error))
+//         .catch(error => ('login api errors:', error))
 //     };
 
 
@@ -166,11 +166,11 @@ class Login extends Component {
         })
       }
     })
-    .catch(error => console.log('login api errors:', error))
+    .catch(error => ('login api errors:', error))
   };
 
 redirect = () => {
-    this.props.history.push('/')
+    this.props.history.push('/items')
   }
 
 handleErrors = () => {

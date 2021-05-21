@@ -62,12 +62,11 @@ class ItemsForm extends Component{
         return(
             
             <div>
+                <br></br>
                 <strong>Add new item2:</strong><hr></hr>
               <div>
-                <form onSubmit={this.handleSubmit}>
-                    <label>UserID</label>
-                     <input type="text" name="user_id" defaultValue={this.state.user_id}/><br></br>
-      
+                <form onSubmit={this.handleSubmit}>                 
+                     <input type="hidden" name="user_id" defaultValue={this.state.user_id}/><br></br>
                     <label>Category:</label>
                     <select name="category_id" onChange={this.handleChange}>
                         {categories}

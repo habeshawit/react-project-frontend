@@ -14,7 +14,7 @@ export default class ItemsApi extends Component{
             .then(data=>this.setState({ 
                 items: data
             }))
-            .then(json=>console.log(json))
+            .then(json=>(json))
     }
 
     render() {

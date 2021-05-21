@@ -85,12 +85,12 @@
 //         this.handleLogout()
 //       }
 //     })
-//     .catch(error => console.log('App api errors:', error))
+//     .catch(error => ('App api errors:', error))
 //   };
 
 //   render(){
 
-//   console.log(this.props);
+//   (this.props);
 
 //   return(
 //     <div className="App">
@@ -165,7 +165,7 @@ class App extends Component {
         this.handleLogout()
       }
     })
-    .catch(error => console.log('app api errors:', error))
+    .catch(error => ('app api errors:', error))
   }
 
   handleLogin = (response) => {
@@ -180,30 +180,38 @@ class App extends Component {
     isLoggedIn: false,
     user: {}
     })
-    // 
+    
     // this.props.history.push('/')
   }
 
 render() {
-  console.log(this.state);
-  console.log(this.props);  
+  // (this.state);
+  // (this.props);  
 
     return (
-      <div>
+      <div className="container">
         
         <BrowserRouter>
         
-          <Navbar user = {this.state.user} handleLogout = {this.handleLogout}/>
+          {/* <Navbar user = {this.state.user} handleLogout = {this.handleLogout}/> */}
+          <Navbar user = {this.state.user} handleLogout = {this.handleLogout}  />
           <Switch>
-            <Route exact path='/' component={Home}/>
-            <Route exact path='/items' component={ItemsList}/>
+            {/* <Route exact path='/' component={Home}/> */}
+            <Route exact path='/' render={props => (<Home {...props} user={this.state.user} loggedInStatus={this.state.isLoggedIn}/>)}/>
+            {/* <Route exact path='/items' component={ItemsList}/> */}
+            <Route exact path='/items' render={props => (<ItemsList {...props} user={this.state.user} loggedInStatus={this.state.isLoggedIn}/>)}/>
+
+
             {/* <Route path='/items/new' component={ItemsForm}/> */}
             <Route exact path='/items/new' render={props => (<ItemsForm {...props} user={this.state.user} loggedInStatus={this.state.isLoggedIn}/>)}/>
-            <Route path="/items/:id" component={ItemShow} />
+            <Route exact path='/items/:id' render={props => (<ItemShow {...props} user={this.state.user} loggedInStatus={this.state.isLoggedIn}/>)}/>
+            {/* <Route path="/items/:id" component={ItemShow} /> */}
             <Route path='/items/api' component={ItemsApi}/>
             <Route exact path='/categories' component={CategoriesList}/>
             <Route path='/categories/new' component={CategoryForm}/>
-            <Route path="/categories/:id" component={CategoryShow} />
+            {/* <Route path="/categories/:id" component={CategoryShow} /> */}
+            <Route exact path='/categories/:id' render={props => (<CategoryShow {...props} user={this.state.user} loggedInStatus={this.state.isLoggedIn}/>)}/>
+
 
 
             <Route 
@@ -228,7 +236,7 @@ render() {
           <Route 
               exact path='/logout' 
               render={props => (
-              <Logout {...props} handleLogout={this.handleLogout} loggedInStatus={this.state.isLoggedIn}/>
+              <Logout {...props} user={this.state.user} handleLogout={this.handleLogout} loggedInStatus={this.state.isLoggedIn}/>
               )}
             /> 
         </BrowserRouter>

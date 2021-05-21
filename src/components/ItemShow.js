@@ -27,21 +27,35 @@ class ItemShow extends Component {
 }
 
   render() {
+
     return (
-      <div className="container">
+       
+      <div > 
+
         <h1>{this.state.item.name}</h1>    
-            <div className= "row row-cols-1 row-cols-md-4 g-4">
-                <div className="col">
-                    <div className = "card h-100" key={this.state.item.id}>       
+            {/* <div className= "row row-cols-1 row-cols-md-4 g-4">
+                <div className="col"> */}
+                    <div key={this.state.item.id}>       
                         <img src={this.state.item.image_url}  width="400" height="400"></img>
                         <p>${this.state.item.price}</p>
                         <strong>Description: </strong><p>{this.state.item.description}</p>
                         <p><strong>In Stock: </strong>{this.state.item.qty}</p>
-                        <button onClick={this.handleDelete}>Delete</button>
-                    </div>
-                </div>
+                        {this.state.item.user ? 
+                            <div>
+                                <strong>Seller Contact Info: </strong><p>{this.state.item.user.email}</p>
+                                {this.state.item.user.id == this.props.user.id ? 
+                                    <button onClick={this.handleDelete}>Delete</button> : null}
+                            </div>
+                        
+                        
+                        : null}
+                        
+                        
+                        
+                    {/* </div>
+                </div> */}
             </div>
-    </div>
+</div>
     );
   }
 }

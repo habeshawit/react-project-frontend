@@ -49,7 +49,7 @@
 //         })
 //       }
 //     })
-//     .catch(error => console.log('signup api errors:', error))
+//     .catch(error => ('signup api errors:', error))
 //   };
 
 // redirect = () => {
@@ -155,7 +155,7 @@ axios.post('http://localhost:3001/users', {user}, {withCredentials: true})
         })
       }
     })
-    .catch(error => console.log('api errors:', error))
+    .catch(error => ('api errors:', error))
   };
 redirect = () => {
     this.props.history.push('/')

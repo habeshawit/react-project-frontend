@@ -21,7 +21,7 @@ class ItemsList extends Component {
                         <CategoriesList />                  
                     </h1>
                     <div className= "row row-cols-1 row-cols-md-4 g-4">
-                        {this.props.items.map(item => <SingleItem item={item}/>)}
+                        {this.props.items.map(item => <SingleItem current_user={this.props.user} item={item}/>)}
                     </div>
                 </div>
                 

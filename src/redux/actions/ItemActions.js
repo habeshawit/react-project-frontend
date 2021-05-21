@@ -26,17 +26,24 @@ export const createItem = (newItemData, history) =>{
             body: JSON.stringify({item: newItemData})
         })
         .then((response) => {
+            // 
             if(response.ok){
                 return response.json();
             } else {
-                throw new Error(response.statusText);
+                debugger
+                // throw new Error(response.statusText);
+                return response.json();
+                
             }
         })
         .then((item) => 
             (dispatch({type: 'CREATE_ITEM', payload: item}),
             history.push('/items'))
         )
-        .catch((err) => dispatch({type: 'ERROR', payload: 'Error creating item. Please enter all information correctly'}))
+        .catch((err) => 
+            dispatch({
+                type: 'ERROR', 
+                payload: err}))
     }
 }
 
