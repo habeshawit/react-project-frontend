@@ -3,7 +3,7 @@
 export function fetchItemlist() {
     // 
     return(dispatch) => {
-        fetch('http://localhost:3000/api/v1/items', {
+        fetch('http://localhost:3001/api/v1/items', {
             method: 'GET'
         })
         .then(response => response.json())

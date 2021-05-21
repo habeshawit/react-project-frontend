@@ -7,12 +7,14 @@ import {connect} from 'react-redux'
 
 class ItemsForm extends Component{
 
+    
     componentDidMount(){
         this.props.getCategories();
     }
     
     state = {
-        category_id: 2,
+        user_id: '',
+        category_id: 1,
         name: '',
         description: '',
         qty: '',
@@ -28,12 +30,14 @@ class ItemsForm extends Component{
     }
     
     handleSubmit = (event) => {
-        // 
+        this.state.user_id = this.props.user.id
+        
         event.preventDefault()
         this.props.createItem(this.state, this.props.history)
         // this.props.history.push("/items/")
         this.setState({
-            category_id: 2,
+            user_id: '',
+            category_id: 1,
             name: '',
             description: '',
             qty: '',
@@ -45,17 +49,25 @@ class ItemsForm extends Component{
 
     render(){
         // 
-        let categories = this.props.categories.length > 0 && this.props.categories.map((category, i) => {
+        let categories = this.props.categories.length > 0 && this.props.categories.map((category) => {
+            // 
             return(
-                <option key={i} value={category.id}>{category.name}</option>
+                <option key={category.id} value={category.id}>{category.name}</option>
             )
         },this)
+        
+      
 
+        // 
         return(
+            
             <div>
                 <strong>Add new item2:</strong><hr></hr>
               <div>
                 <form onSubmit={this.handleSubmit}>
+                    <label>UserID</label>
+                     <input type="text" name="user_id" defaultValue={this.state.user_id}/><br></br>
+      
                     <label>Category:</label>
                     <select name="category_id" onChange={this.handleChange}>
                         {categories}
@@ -77,11 +89,15 @@ class ItemsForm extends Component{
             </div>
         )
     }
+
+    
 }
+
 
 const mapStateToProps = state =>{
     return{
-        categories: state.categories
+        categories: state.categories,
+        // user: state.user
     }
 }
 

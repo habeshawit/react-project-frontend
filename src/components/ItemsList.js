@@ -1,5 +1,5 @@
 import React, {Component} from 'react'
-import Categories from './Categories';
+// import Categories from './old components/Categories';
 import {getItems} from '../redux/actions/ItemActions'
 import {connect} from 'react-redux'
 import SingleItem from '../components/SingleItem'

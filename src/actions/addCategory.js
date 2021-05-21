@@ -1,7 +1,7 @@
 export const addCategory = (data) =>{
 
     return(dispatch) => {
-        fetch('http://localhost:3000/api/v1/categories', {
+        fetch('http://localhost:3001/api/v1/categories', {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'

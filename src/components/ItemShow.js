@@ -15,7 +15,7 @@ class ItemShow extends Component {
 
   componentDidMount() {
       
-    fetch(`http://localhost:3000/api/v1/items/${this.props.match.params.id}`)
+    fetch(`http://localhost:3001/api/v1/items/${this.props.match.params.id}`)
       .then((res) => res.json())
       .then((data) => this.setState({ item: data }));
       

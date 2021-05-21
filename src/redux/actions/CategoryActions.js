@@ -1,7 +1,7 @@
 export const getCategories = () => {
 // 
     return (dispatch) =>{
-        fetch('http://localhost:3000/api/v1/categories')
+        fetch('http://localhost:3001/api/v1/categories')
             .then((res) => res.json())
             .then((category) => 
                 dispatch({
@@ -15,7 +15,7 @@ export const getCategories = () => {
 export const getCategory = (CategoryId) => {
     // 
     return (dispatch) =>{
-        fetch(`http://localhost:3000/api/v1/categories/${CategoryId}`)
+        fetch(`http://localhost:3001/api/v1/categories/${CategoryId}`)
             .then((res) => res.json())
             .then((category) => 
                 dispatch({
@@ -31,7 +31,7 @@ export const createCategory = (newCategoryData, history) =>{
 
     return(dispatch) => {
         
-        fetch('http://localhost:3000/api/v1/categories', {
+        fetch('http://localhost:3001/api/v1/categories', {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'

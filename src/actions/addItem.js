@@ -2,7 +2,7 @@ export const addItem = (item, categoryId) =>{
 
     return(dispatch) => {
         
-        fetch(`http://localhost:3000/api/v1/categories/${categoryId}/items`, {
+        fetch(`http://localhost:3001/api/v1/categories/${categoryId}/items`, {
             headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'

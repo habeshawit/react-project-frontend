@@ -9,7 +9,7 @@ function SingleItem(props) {
     const history =useHistory();
 
     const handleDelete = () =>{
-        props.deleteItem(props.item.id)
+        props.deleteItem(props.item.id, history)
         props.getItems()
     }
 
