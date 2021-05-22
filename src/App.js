@@ -1,5 +1,5 @@
 // import React from 'react'
-// import './App.css';
+import './App.css';
 // // import Itemlist from './components/old components/Itemlist';
 // // import ItemlistContainer from './containers/ItemlistContainer';
 // import { connect } from 'react-redux';
@@ -143,8 +143,14 @@ import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import NavDropdown from 'react-bootstrap/NavDropdown';
+import { green } from '@material-ui/core/colors';
 
 
+// const divStyle = {
+//   // backcolor: 'blue',
+//   backgroundcolor: 'blue'
+//   // backgroundImage: 'url(https://www.groovypost.com/wp-content/uploads/2019/12/sell-items-online-sale-featured-1000x450.jpg)',
+// };
 
 
 class App extends Component {
@@ -193,8 +199,8 @@ render() {
 
     return (
       <div >
-         <Navbar collapseOnSelect expand="lg" bg="light" >
-            <Container>
+         <Navbar collapseOnSelect expand="lg" className="color-nav" >
+            {/* <Container> */}
               <Navbar.Brand href="/">Simple Sales</Navbar.Brand>
               <Navbar.Toggle aria-controls="responsive-navbar-nav" />
               <Navbar.Collapse id="responsive-navbar-nav">
@@ -207,58 +213,61 @@ render() {
                 </Nav>
                 {this.state.user.username? <Navbar>Welcome,<strong>{this.state.user.username}</strong></Navbar> : null}
               </Navbar.Collapse>
-            </Container>
+            {/* </Container> */}
         </Navbar>
 
-      <div className="container">
-
-        <BrowserRouter>
+      {/* <div className="container"> */}
+<Container fluid >
+<BrowserRouter>
           
-            {/* <NavBar user = {this.state.user} handleLogout = {this.handleLogout}  /> */}
-          
-            <Switch>
-              <Route exact path='/' render={props => (<Home {...props} user={this.state.user} loggedInStatus={this.state.isLoggedIn}/>)}/>
-              <Route exact path='/items' render={props => (<ItemsList {...props} user={this.state.user} loggedInStatus={this.state.isLoggedIn}/>)}/>
-              <Route exact path='/items/new' render={props => (<ItemsForm {...props} user={this.state.user} loggedInStatus={this.state.isLoggedIn}/>)}/>
-              <Route exact path='/items/:id' render={props => (<ItemShow {...props} user={this.state.user} loggedInStatus={this.state.isLoggedIn}/>)}/>
-              <Route path='/items/api' component={ItemsApi}/>
-              <Route exact path='/categories' component={CategoriesList}/>
-              <Route path='/categories/new' component={CategoryForm}/>
-              <Route exact path='/categories/:id' render={props => (<CategoryShow {...props} user={this.state.user} loggedInStatus={this.state.isLoggedIn}/>)}/>
+          {/* <NavBar user = {this.state.user} handleLogout = {this.handleLogout}  /> */}
+        
+          <Switch>
+            <Route exact path='/' render={props => (<Home {...props} user={this.state.user} loggedInStatus={this.state.isLoggedIn}/>)}/>
+            <Route exact path='/items' render={props => (<ItemsList {...props} user={this.state.user} loggedInStatus={this.state.isLoggedIn}/>)}/>
+            <Route exact path='/items/new' render={props => (<ItemsForm {...props} user={this.state.user} loggedInStatus={this.state.isLoggedIn}/>)}/>
+            <Route exact path='/items/:id' render={props => (<ItemShow {...props} user={this.state.user} loggedInStatus={this.state.isLoggedIn}/>)}/>
+            <Route path='/items/api' component={ItemsApi}/>
+            <Route exact path='/categories' component={CategoriesList}/>
+            <Route path='/categories/new' component={CategoryForm}/>
+            <Route exact path='/categories/:id' render={props => (<CategoryShow {...props} user={this.state.user} loggedInStatus={this.state.isLoggedIn}/>)}/>
 
 
 
-              <Route 
-                exact path='/' 
-                render={props => (
-                <Home {...props} handleLogout={this.handleLogout} loggedInStatus={this.state.isLoggedIn}/>
-                )}
-              />
-              <Route 
-                exact path='/login' 
-                render={props => (
-                <Login {...props} handleLogin={this.handleLogin} loggedInStatus={this.state.isLoggedIn}/>
-                )}
-              />
-              <Route 
-                exact path='/signup' 
-                render={props => (
-                <Signup {...props} handleLogin={this.handleLogin} loggedInStatus={this.state.isLoggedIn}/>
-                )}
-              />
-            </Switch>
             <Route 
-                exact path='/logout' 
-                render={props => (
-                <Logout {...props} user={this.state.user} handleLogout={this.handleLogout} loggedInStatus={this.state.isLoggedIn}/>
-                )}
-              /> 
-          </BrowserRouter>
+              exact path='/' 
+              render={props => (
+              <Home {...props} handleLogout={this.handleLogout} loggedInStatus={this.state.isLoggedIn}/>
+              )}
+            />
+            <Route 
+              exact path='/login' 
+              render={props => (
+              <Login {...props} handleLogin={this.handleLogin} loggedInStatus={this.state.isLoggedIn}/>
+              )}
+            />
+            <Route 
+              exact path='/signup' 
+              render={props => (
+              <Signup {...props} handleLogin={this.handleLogin} loggedInStatus={this.state.isLoggedIn}/>
+              )}
+            />
+          </Switch>
+          <Route 
+              exact path='/logout' 
+              render={props => (
+              <Logout {...props} user={this.state.user} handleLogout={this.handleLogout} loggedInStatus={this.state.isLoggedIn}/>
+              )}
+            /> 
+        </BrowserRouter>
+
+</Container>
+        
       </div>
 
 
 
-</div>
+// </div>
         
     );
   }

@@ -11,8 +11,8 @@ export default function SingleCategory(props) {
         //     </div>
         // </div>
             
-            <NavLink to={`/categories/${props.category.id}`} style={{ textDecoration: 'none' }}>
-                <strong>{props.category.name}      |      </strong>
+            <NavLink to={`/categories/${props.category.id}`} style={{ textDecoration: 'none', color: 'darkcyan' }}>
+                <>{props.category.name}      |      </>
             </NavLink>
 
      

@@ -32,19 +32,22 @@ class ItemShow extends Component {
 
     return (
        
-      <div > 
-
-        <h1>{this.state.item.name}</h1>    
-            {/* <div className= "row row-cols-1 row-cols-md-4 g-4">
-                <div className="col"> */}
-                    <div key={this.state.item.id}>       
-                        <img src={this.state.item.image_url}  width="400" height="400"></img>
-                        <p>${this.state.item.price}</p>
-                        <h5>Description: </h5><p>{this.state.item.description}</p>
+      <div className="container"> 
+      <br></br>
+        <h1>{this.state.item.name}</h1>
+        {/* <div className="container2"> */}
+           
+  <div className="row">
+    <div className="col" >
+        <img src={this.state.item.image_url}  width="500" height="500"></img>       
+    </div>
+    <div className="col">
+    <h4>${this.state.item.price}</h4>
+                        <h4>Description: </h4><p>{this.state.item.description}</p>
                         {/* <p><strong>In Stock: </strong>{this.state.item.qty}</p> */}
                         {this.state.item.user ? 
                             <div>
-                                <h5>Seller Contact Info: </h5><p>{this.state.item.user.email}</p>
+                                <h4>Seller Contact Info: </h4><p>{this.state.item.user.email}</p>
                                 {this.state.item.user.id == this.props.user.id ? 
                                     <Button size="small" variant="outlined" color="secondary" onClick={this.handleDelete}>Delete</Button> : null}
                             </div>
@@ -54,9 +57,10 @@ class ItemShow extends Component {
                         
                         
                         
-                    {/* </div>
-                </div> */}
-            </div>
+    {/* </div> */}
+  </div>
+  </div>
+        
 </div>
     );
   }

@@ -4,6 +4,22 @@
   background-color: black;
 }
 
+.color-nav{
+  /* background-image: url("https://assets.entrepreneur.com/content/3x2/2000/20191219170611-GettyImages-1152794789.jpeg"); */
+  background-color: darkcyan;
+  color: white
+  
+}
+
+
+.container2{
+  text-align: left;
+  /* margin: 250px; */
+  /* background-color: black; */
+  /* margin: 25px; */
+}
+
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -45,10 +61,20 @@
   padding-bottom: 0rem;
   margin-bottom: 0;
   background-color: lightblue;
+  background-position: right;
+  background-repeat: no-repeat;
+  /* background-size: cover; */
+  background-image: url("https://www.harfordhistory.org/wp-content/uploads/2020/09/Virtual-Yards-tiny.jpg");
+}
+
+
+.jumbotron2{
+  background-image: url("https://www.harfordhistory.org/wp-content/uploads/2020/09/Virtual-Yards-tiny.jpg");
+
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url("https://assets.entrepreneur.com/content/3x2/2000/20191219170611-GettyImages-1152794789.jpeg");
+  height: 325px;
 }
 @media (min-width: 768px) {
   .jumbotron {
@@ -56,14 +82,9 @@
     padding-bottom: 1rem;
   }
   .container {
-    max-width: 1400px;
+    max-width: 600px;
   }
 
-  /* .card-deck > .card {
-    width: 29%;
-    flex-wrap: wrap;
-    flex: initial;
-  } */
 }
 
 .jumbotron p:last-child {
@@ -105,14 +126,27 @@ footer p {
   border-radius: 1.25rem;
   /* height: 100%; */
   border: none;
-  margin-bottom: 25px;
+  /* margin-bottom: 25px; */
 }
 
-img.card-img-top {
+.card img{
+  width: 100%;
+  height: 17vw;
+  object-fit: cover;
+}
+
+.container2 {
+  display: flex;
+  /* flex-wrap: wrap; */
+  /* margin-right: 55px; */
+  margin-left: 35px;
+}
+
+/* img.card-img-top {
   width: 100%;
   height: 60%;
   object-fit: cover;
-}
+} */
 
 .h5,
 h5 {
@@ -213,12 +247,12 @@ img.card-text {
   text-align: center;
 } */
 
-.categoryNav{
+/* .categoryNav{
     font-size: large;
     word-spacing: 1rem;
     text-decoration: none;
     
-}
+} */
 
 
 /* .categoryNav p:hover, .categoryNav p:active {

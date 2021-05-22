@@ -33,9 +33,12 @@ class ItemsList extends Component {
                     <div>
                         <CategoriesList />                  
                     </div>
-                    <div className= "row row-cols-1 row-cols-md-4 g-4">
-                        {this.props.items.map(item => <SingleItem current_user={this.props.user} item={item}/>)}
+                    <div className="container2">
+                        <div className= "row row-cols-1 row-cols-md-5 g-4">
+                            {this.props.items.map(item => <SingleItem current_user={this.props.user} item={item}/>)}
+                        </div>
                     </div>
+                    
                 </div>
                 
                 
