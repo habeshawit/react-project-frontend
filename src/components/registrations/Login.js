@@ -1,11 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios'
-import {Link} from 'react-router-dom'
-// import Button from 'react-bootstrap/Button';
-import Button from '@material-ui/core/Button';
-import SignIn from '../components/SignIn'
-
-
+import SignIn from '../registrations/SignIn'
 
 class Login extends Component {
   constructor(props) {
@@ -18,7 +13,6 @@ class Login extends Component {
      };
   }
 
-  
   componentDidMount() {
     return this.props.loggedInStatus ? this.redirect() : null
   }
@@ -79,38 +73,7 @@ render() {
   
           <div>
             <SignIn username={username} email={email} password={password} handleSubmit={this.handleSubmit} handleChange={this.handleChange}/>
-            {/* <h1>Log In</h1>
-            <form onSubmit={this.handleSubmit}>
-              <input
-                placeholder="username"
-                type="text"
-                name="username"
-                value={username}
-                onChange={this.handleChange}
-              />
-              <input
-                placeholder="email"
-                type="text"
-                name="email"
-                value={email}
-                onChange={this.handleChange}
-              />
-              <input
-                placeholder="password"
-                type="password"
-                name="password"
-                value={password}
-                onChange={this.handleChange}
-              />
-              <Button placeholder="submit" type="submit">
-                Log In
-              </Button>
-              <div>
-                or <Link to='/signup'>sign up</Link>
-              </div>
-              
-              </form> */}
-              <div>
+            <div>
               {
                 this.state.errors ? this.handleErrors() : null
               }

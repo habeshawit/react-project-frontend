@@ -1,9 +1,7 @@
 import React, {Component} from 'react'
 import {getCategories} from '../redux/actions/CategoryActions'
 import {connect} from 'react-redux'
-import {NavLink, Link} from 'react-router-dom'
-
-
+import {NavLink} from 'react-router-dom'
 
 class CategoriesList extends Component {
 
@@ -11,8 +9,7 @@ class CategoriesList extends Component {
         this.props.getCategories();
         console.log(this.props.categories);
     }
-
-    
+   
     render(){
         return (
             <div>

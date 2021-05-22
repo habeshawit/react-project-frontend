@@ -8,7 +8,6 @@ class CategoriesShow extends Component {
 
     componentDidMount(){
         this.props.getCategories();
-
     }
 
     category = () => {
@@ -27,26 +26,24 @@ class CategoriesShow extends Component {
             <h1>{category.name}</h1>
             <div className= "row row-cols-1 row-cols-md-4 g-4">         
                 {category.items.map(item => 
-                // <SingleItem current_user={this.props.user} item={item}/>
-                <div className="col">
-                {item.user ? <div className = "card h-100" key={item.id}>
-                    <center><h5>{item.name}</h5></center>
-                    <Link to={`/items/${item.id}`}><img src={item.image_url}></img></Link>
-                    <p>${item.price}</p>
-                    {this.props.user.id == item.user.id? 
+                    <div className="col">
+                    {item.user ? 
+                        <div className = "card h-100" key={item.id}>
+                            <center><h5>{item.name}</h5></center>
+                            <Link to={`/items/${item.id}`}><img src={item.image_url}></img></Link>
+                            <p>${item.price}</p>
+                            {this.props.user.id == item.user.id? 
                                 <div>
                                     <Button size="small" variant="outlined" color="secondary" onClick={(e) => this.handleDelete(item.id, e)} >Delete</Button>
                                 </div>
                                 : null}                      
-                </div>
-                : null}
-                
-            </div>
+                        </div>
+                    : null}                   
+                    </div>
                 )}               
             </div>
         </div>
-        )
-        
+        )      
     }
     
     render(){
@@ -64,7 +61,5 @@ const mapStateToProps = state =>{
         categories: state.categories
     }
 }
-
-//mapstatetoprops gets the state in our redux store, getItems action will dispatch the action we are importing from itemActions, through componentDidMount
 
 export default connect(mapStateToProps, {getCategories})(CategoriesShow)

@@ -16,8 +16,7 @@ class ItemsList extends Component {
         
         this.props.deleteItem(itemID, this.props.history)
         this.setState({
-            items: this.props.items.filter(i => i.id != itemID),
-            
+            items: this.props.items.filter(i => i.id != itemID),          
           });
           
         this.props.getItems()
@@ -25,54 +24,42 @@ class ItemsList extends Component {
     
     render(){
         return (
-            <div>
-        
-                <div>
-                    
-                    <br></br>
-                    <h1>Welcome to Simple Sales</h1>
-                    {this.props.user.id ? 
-                        null : 
-                        <div>
-                            <Button size="small" variant="outlined" color="secondary"><Link to='/login'>Log In</Link></Button> | | 
-                            <Button size="small" variant="outlined" color="secondary"><Link to='/signup'>Sign Up</Link></Button>     
-                        </div>
-                    }      
+            <div>                         
+                <br></br>
+                <h1>Welcome to Simple Sales</h1>
+                {this.props.user.id ? 
+                    null : 
                     <div>
-                        <CategoriesList />                  
+                        <Button size="small" variant="outlined" color="secondary"><Link to='/login'>Log In</Link></Button> | | 
+                        <Button size="small" variant="outlined" color="secondary"><Link to='/signup'>Sign Up</Link></Button>     
                     </div>
-                                <div className="container2">
-                                    <div className= "row row-cols-1 row-cols-md-5 g-4">
-                                        {this.props.items.map(item => 
-                                        <div className="col">
-                        {item.user ? 
-                            <div className = "card h-100" key={item.id}>
-                            <center><h5>{item.name}</h5></center>
-                            <Link to={`/items/${item.id}`}><img src={item.image_url}></img></Link>
-                            <p>${item.price}</p>
-                            {this.props.user.id == item.user.id? 
-                                <div>
-                                    <Button size="small" variant="outlined" color="secondary" onClick={(e) => this.handleDelete(item.id, e)} >Delete</Button>
-                                    {/* <button onClick={(e) => this.handleDelete(item.id, e)}>Delete Item</button> */}
-                                </div>
-                                : null}         
-                            </div>
-                        : null}  
-
-                        
-                    </div>
-                            
-                            )}
-                        </div>
-                    </div>
-                    
+                }      
+                <div>
+                    <CategoriesList />                  
                 </div>
-                
-                
+                <div className="container2">
+                    <div className= "row row-cols-1 row-cols-md-5 g-4">
+                        {this.props.items.map(item => 
+                            <div className="col">
+                                {item.user ? 
+                                    <div className = "card h-100" key={item.id}>
+                                    <center><h5>{item.name}</h5></center>
+                                    <Link to={`/items/${item.id}`}><img src={item.image_url}></img></Link>
+                                    <p>${item.price}</p>
+                                    {this.props.user.id == item.user.id? 
+                                        <div>
+                                            <Button size="small" variant="outlined" color="secondary" onClick={(e) => this.handleDelete(item.id, e)} >Delete</Button>
+                                        </div>
+                                        : null}         
+                                    </div>
+                                : null}  
+                            </div>  
+                        )}
+                    </div>
+                </div>                
             </div>
         )
     }
-
 }
 
 const mapStateToProps = state =>{

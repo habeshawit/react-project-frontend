@@ -1,5 +1,4 @@
 export const getCategories = () => {
-// 
     return (dispatch) =>{
         fetch('http://localhost:3001/api/v1/categories', {
             headers: {
@@ -19,7 +18,6 @@ export const getCategories = () => {
 }
 
 export const getCategory = (CategoryId) => {
-    // 
     return (dispatch) =>{
         fetch(`http://localhost:3001/api/v1/categories/${CategoryId}`)
             .then((res) => res.json())
@@ -27,8 +25,7 @@ export const getCategory = (CategoryId) => {
                 dispatch({
                     type: 'FETCH_CATEGORIES',
                     payload: category
-                })    
-                   
+                })                       
         )
     }
 }
@@ -57,8 +54,6 @@ export const createCategory = (newCategoryData, history) =>{
             history.push('/categories'))
         )
         .catch((err) => dispatch({type: "ERROR", payload: ''}))
-        
-        // 
     }
 }
 

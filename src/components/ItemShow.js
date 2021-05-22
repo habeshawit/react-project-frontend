@@ -1,4 +1,3 @@
-  
 import React, { Component } from "react";
 import {deleteItem} from '../redux/actions/ItemActions'
 import { connect } from 'react-redux'
@@ -10,8 +9,6 @@ class ItemShow extends Component {
     item: {}
   };
   
-
-
   componentDidMount() {
       
     fetch(`http://localhost:3001/api/v1/items/${this.props.match.params.id}`)
@@ -26,38 +23,34 @@ class ItemShow extends Component {
 
   render() {
 
-    return (
-       
+    return (      
       <div className="container"> 
-      <br></br>
+        <br></br>
         <h1>{this.state.item.name}</h1>
-        {/* <div className="container2"> */}
-           
-  <div className="row">
-    <div className="col" >
-        <img src={this.state.item.image_url}  width="500" height="500"></img>       
-    </div>
-    <div className="col">
-      <h4>${this.state.item.price}</h4>
-      <h4>Description: </h4><p>{this.state.item.description}</p>
-      {this.state.item.user ? 
-          <div>
-            <h4>Seller Contact Info: </h4>
-            <p>Sold by: {this.state.item.user.username}</p>
-            <p>{this.state.item.user.contact_preference}</p>
-            <h4>Location: </h4><p>{this.state.item.user.location}</p>
-                {this.state.item.user.id == this.props.user.id ? 
-                <Button size="small" variant="outlined" color="secondary" onClick={this.handleDelete}>Delete</Button> : null}
+
+        <div className="row">
+          <div className="col" >
+            <img src={this.state.item.image_url}  width="500" height="500"></img>       
+          </div>
+
+          <div className="col">
+            <h4>${this.state.item.price}</h4>
+            <h4>Description: </h4><p>{this.state.item.description}</p>
+            {this.state.item.user ? 
+            <div>
+              <h4>Seller Contact Info: </h4>
+              <p>Sold by: {this.state.item.user.username}</p>
+              <p>{this.state.item.user.contact_preference}</p>
+              <h4>Location: </h4><p>{this.state.item.user.location}</p>
+              {this.state.item.user.id == this.props.user.id ? 
+              <Button size="small" variant="outlined" color="secondary" onClick={this.handleDelete}>Delete</Button> : null}
             </div>
-      : null}
-                        
-                        
-                        
-    {/* </div> */}
-  </div>
-  </div>
-        
-</div>
+            : null}
+          </div>
+
+        </div>  
+              
+      </div>
     );
   }
 }

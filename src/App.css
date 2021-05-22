@@ -5,7 +5,6 @@
 }
 
 .color-nav{
-  /* background-image: url("https://assets.entrepreneur.com/content/3x2/2000/20191219170611-GettyImages-1152794789.jpeg"); */
   background-color: darkcyan;
   color: white;
   font-family: Arial;
@@ -14,8 +13,6 @@
 
 .container2{
   text-align: left;
-  /* margin: 250px; */
-  /* background-color: black; */
   margin: 25px;
 }
 
@@ -63,7 +60,6 @@
   background-color: lightblue;
   background-position: right;
   background-repeat: no-repeat;
-  /* background-size: cover; */
   background-image: url("https://www.harfordhistory.org/wp-content/uploads/2020/09/Virtual-Yards-tiny.jpg");
 }
 
@@ -124,9 +120,7 @@ footer p {
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 1.25rem;
-  /* height: 100%; */
   border: none;
-  /* margin-bottom: 25px; */
 }
 
 .card img{
@@ -137,16 +131,8 @@ footer p {
 
 .container2 {
   display: flex;
-  /* flex-wrap: wrap; */
-  /* margin-right: 55px; */
   margin-left: 35px;
 }
-
-/* img.card-img-top {
-  width: 100%;
-  height: 60%;
-  object-fit: cover;
-} */
 
 .h5,
 h5 {
@@ -184,12 +170,7 @@ h5 {
   width: 50%;
 }
 
-/* .modal {
-  text-align: center;
-} */
-
 img.card-text {
-  /* you need to match the shadow color to your background or image border for the desired effect*/
   box-shadow: 0 0 8px 8px white inset;
 }
 
@@ -234,28 +215,15 @@ img.card-text {
 
 .form{
   max-width:500px;
-  margin-left: 35px;
-  /* margin-left: 0px; */
-  
+  margin-left: 35px;  
 }
-
-/* body {
+/* 
+body {
   background-color: #282c34;
-  color: white;
+  color: black;
   padding: 40px;
   font-family: Arial;
   text-align: center;
 } */
 
-/* .categoryNav{
-    font-size: large;
-    word-spacing: 1rem;
-    text-decoration: none;
-    
-} */
 
-
-/* .categoryNav p:hover, .categoryNav p:active {
-  background-color: green;
-  text-decoration: none;
-} */

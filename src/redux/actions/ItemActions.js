@@ -1,5 +1,4 @@
 export const getItems = () => {
-
     return (dispatch) =>{
         fetch('http://localhost:3001/api/v1/items')
             .then((res) => res.json())
@@ -9,14 +8,11 @@ export const getItems = () => {
                     payload: items
                 })
         )
-    }
-    
+    }   
 }
 
-export const createItem = (newItemData, history) =>{
-    
-    return(dispatch) => {
-        
+export const createItem = (newItemData, history) =>{    
+    return(dispatch) => {        
         fetch('http://localhost:3001/api/v1/items', {
             headers: {
                 'Content-Type': 'application/json',
@@ -45,8 +41,7 @@ export const createItem = (newItemData, history) =>{
 }
 
 export const deleteItem = (itemId, history) => {
-    return(dispatch) => {
-        
+    return(dispatch) => {        
         fetch(`http://localhost:3001/api/v1/items/${itemId}`, {
             method: 'DELETE'
         })
