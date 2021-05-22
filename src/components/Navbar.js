@@ -1,7 +1,8 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import Button from 'react-bootstrap/Button';
 
-function Navbar(props) {
+function NavBar(props) {
     // 
     return(
         
@@ -12,11 +13,11 @@ function Navbar(props) {
             <NavLink to="/items">Items for Sale</NavLink>  |
             <NavLink to="/items/new">Post Item</NavLink>  |  
             <br></br>
-            {props.user.id? <div>Logged in as: {props.user.username}    |   <button onClick={props.handleLogout}>Logout</button></div> : null}          
+            {props.user.id? <div>Logged in as: {props.user.username}    |   <Button onClick={props.handleLogout}>Logout</Button></div> : null}          
         </div>
             
         // </ul>
     )
 }
 
-export default Navbar;
+export default NavBar;

@@ -2,6 +2,7 @@
 import React, { Component } from "react";
 import {deleteItem} from '../redux/actions/ItemActions'
 import { connect } from 'react-redux'
+import Button from 'react-bootstrap/Button';
 
 
 
@@ -44,7 +45,7 @@ class ItemShow extends Component {
                             <div>
                                 <strong>Seller Contact Info: </strong><p>{this.state.item.user.email}</p>
                                 {this.state.item.user.id == this.props.user.id ? 
-                                    <button onClick={this.handleDelete}>Delete</button> : null}
+                                    <Button onClick={this.handleDelete}>Delete</Button> : null}
                             </div>
                         
                         

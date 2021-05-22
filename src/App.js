@@ -17,7 +17,7 @@
 // import CategoriesList from './components/CategoriesList';
 // import CategoryForm from './components/CategoryForm'
 // import CategoryShow from './components/CategoryShow'
-// import Navbar from './components/Navbar'
+// import NavBar from './components/NavBar'
 // import Login from './components/Login'
 // import Signup from './components/Signup'
 
@@ -95,7 +95,7 @@
 //   return(
 //     <div className="App">
 //       <BrowserRouter>
-//         <Navbar/>
+//         <NavBar/>
 
 //         <Switch>
 //           <Route exact path='/' component={Home}/>
@@ -138,7 +138,12 @@ import ItemShow from './components/ItemShow';
 import CategoriesList from './components/CategoriesList';
 import CategoryForm from './components/CategoryForm'
 import CategoryShow from './components/CategoryShow'
-import Navbar from './components/Navbar'
+import NavBar from './components/NavBar'
+import Container from 'react-bootstrap/Container';
+import Navbar from 'react-bootstrap/Navbar';
+import Nav from 'react-bootstrap/Nav';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+
 
 
 
@@ -189,27 +194,40 @@ render() {
   // (this.props);  
 
     return (
-      <div className="container">
+      <div >
+         <Navbar collapseOnSelect expand="lg" bg="light" >
+  <Container>
+  <Navbar.Brand href="#home">Simple Sales</Navbar.Brand>
+  <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+  <Navbar.Collapse id="responsive-navbar-nav">
+    <Nav className="me-auto">
+      <Nav.Link href="/">Home</Nav.Link>
+      <Nav.Link href="/items">Items For Sale</Nav.Link>
+      <Nav.Link href="/items/new">Post Item</Nav.Link>    
+    </Nav>
+    <Nav>
+      <Nav.Link onClick={this.handleLogout}>Logout</Nav.Link>
+    </Nav>
+    {this.state.user.username? <Navbar>Welcome,<strong>{this.state.user.username}</strong></Navbar> : null}
+
+  </Navbar.Collapse>
+  </Container>
+</Navbar>
+
+<div className="container">
+
+<BrowserRouter>
         
-        <BrowserRouter>
-        
-          {/* <Navbar user = {this.state.user} handleLogout = {this.handleLogout}/> */}
-          <Navbar user = {this.state.user} handleLogout = {this.handleLogout}  />
+          {/* <NavBar user = {this.state.user} handleLogout = {this.handleLogout}  /> */}
+         
           <Switch>
-            {/* <Route exact path='/' component={Home}/> */}
             <Route exact path='/' render={props => (<Home {...props} user={this.state.user} loggedInStatus={this.state.isLoggedIn}/>)}/>
-            {/* <Route exact path='/items' component={ItemsList}/> */}
             <Route exact path='/items' render={props => (<ItemsList {...props} user={this.state.user} loggedInStatus={this.state.isLoggedIn}/>)}/>
-
-
-            {/* <Route path='/items/new' component={ItemsForm}/> */}
             <Route exact path='/items/new' render={props => (<ItemsForm {...props} user={this.state.user} loggedInStatus={this.state.isLoggedIn}/>)}/>
             <Route exact path='/items/:id' render={props => (<ItemShow {...props} user={this.state.user} loggedInStatus={this.state.isLoggedIn}/>)}/>
-            {/* <Route path="/items/:id" component={ItemShow} /> */}
             <Route path='/items/api' component={ItemsApi}/>
             <Route exact path='/categories' component={CategoriesList}/>
             <Route path='/categories/new' component={CategoryForm}/>
-            {/* <Route path="/categories/:id" component={CategoryShow} /> */}
             <Route exact path='/categories/:id' render={props => (<CategoryShow {...props} user={this.state.user} loggedInStatus={this.state.isLoggedIn}/>)}/>
 
 
@@ -242,6 +260,11 @@ render() {
         </BrowserRouter>
         {/* {this.state.isLoggedIn ? <div>Logged in as: {this.state.user.username}      |     <button onClick={this.handleLogout}>Logout</button></div> : null} */}
       </div>
+
+
+
+</div>
+        
     );
   }
 }

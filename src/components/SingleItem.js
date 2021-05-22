@@ -4,6 +4,7 @@ import {Link} from 'react-router-dom'
 import {deleteItem, getItems} from '../redux/actions/ItemActions'
 import { connect } from 'react-redux'
 import { useHistory } from 'react-router-dom'
+import Button from 'react-bootstrap/Button';
 
 function SingleItem(props) {
     const history =useHistory();
@@ -22,7 +23,7 @@ function SingleItem(props) {
                 <p></p>${props.item.price}
                 {props.current_user.id == props.item.user.id? 
                     <div>
-                        <button onClick={handleDelete}>Delete</button>
+                        <Button onClick={handleDelete}>Delete</Button>
                     </div>
                     : null}
                 
