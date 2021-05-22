@@ -208,9 +208,11 @@ render() {
                   <Nav.Link href="/items">Items For Sale</Nav.Link>
                   <Nav.Link href="/items/new">Post Item</Nav.Link>    
                 </Nav>
-                <Nav>
-                  <Nav.Link onClick={this.handleLogout}>Logout</Nav.Link>
-                </Nav>
+                {this.state.user.username? 
+                  <Nav>
+                    {/* <Nav.Link onClick={this.handleLogout}>Logout</Nav.Link> */}
+                    <Nav.Link href="/logout">Logout</Nav.Link>
+                  </Nav> : null}
                 {this.state.user.username? <Navbar>Welcome,<strong>{this.state.user.username}</strong></Navbar> : null}
               </Navbar.Collapse>
             {/* </Container> */}

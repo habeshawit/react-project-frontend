@@ -12,7 +12,7 @@ function SingleItem(props) {
 
     const handleDelete = () =>{
         props.deleteItem(props.item.id, history)
-        props.getItems()
+        // props.getItems()
     }
 // 
     return (

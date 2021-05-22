@@ -169,9 +169,10 @@ class Logout extends Component {
   componentDidMount() {
     return this.props.loggedInStatus ? this.logout : null
   }
-x
-  logout = (event) => {
-    event.preventDefault()
+
+  logout = () => {
+    // 
+    // event.preventDefault()
     
     const {username, email, password} = this.props.user
 
@@ -181,11 +182,11 @@ x
       password: password
     }
     
-    axios.post('http://localhost:3001/api/v1/login', {user}, {withCredentials: true})
+    axios.post('http://localhost:3001/api/v1/logout', {user}, {withCredentials: true})
     .then(response => {
       
-      if (response.data.logged_in) {
-        this.props.handleLogin(response
+      if (response.data.logged_out) {
+        this.props.handleLogout(response
           )
         
         this.redirect()
@@ -195,11 +196,11 @@ x
         })
       }
     })
-    .catch(error => ('login api errors:', error))
+    .catch(error => ('logout api errors:', error))
   };
 
 redirect = () => {
-    this.props.history.push('/')
+    this.props.history.push('/items')
   }
 
 handleErrors = () => {
@@ -214,12 +215,12 @@ handleErrors = () => {
       </div>
     )
   }
+
 render() {
-    const {username, email, password} = this.props.user
+
 return (
       <div>
-        current user: {username}
-        {this.logout}
+        {this.logout()}
       </div>
     );
   }

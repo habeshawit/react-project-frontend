@@ -30,10 +30,7 @@ export const createItem = (newItemData, history) =>{
             if(response.ok){
                 return response.json();
             } else {
-                
-                // throw new Error(response.statusText);
-                return response.json();
-                
+                throw new Error(response.statusText);                
             }
         })
         .then((item) => 
@@ -43,7 +40,7 @@ export const createItem = (newItemData, history) =>{
         .catch((err) => 
             dispatch({
                 type: 'ERROR', 
-                payload: err}))
+                payload: "Error creating item. Please enter a name"}))
     }
 }
 
@@ -55,7 +52,8 @@ export const deleteItem = (itemId, history) => {
         })
         .then((res) => res.json())
         .then((item) => 
-            (dispatch({type: 'DELETE_ITEM', payload: item}))
+            (dispatch({type: 'DELETE_ITEM', payload: item}),
+            history.push('/items'))
         )
     }
 }

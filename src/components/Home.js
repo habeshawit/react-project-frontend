@@ -14,7 +14,9 @@ const divStyle = {
 
 const Home = (props) => {
   return (
+    
     <div>
+      <br></br><br></br>
         
 <div className="container">
     <div className="jumbotron2">

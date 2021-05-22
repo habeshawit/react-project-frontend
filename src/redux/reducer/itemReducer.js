@@ -6,19 +6,16 @@ export default (state = [], action) => {
             {
                 alert(action.payload.message)
                 return [...state, action.payload]
-            }
-            
-        case 'DELETE_ITEM':
+            }           
+        case 'DELETE_ITEM':   
+                     
             {alert(action.payload.message)
             return [...state, action.payload]}
         case 'ERROR':
-            
-            alert(action.payload.message)
-            return action.payload
-            // // return state
-            // return [...state, action.payload]
-            
-            // return{...state, items: [...state, action.payload]}
+            {
+            alert(action.payload)
+            return  [...state, action.payload]
+            }
         default:
             return state;
     }

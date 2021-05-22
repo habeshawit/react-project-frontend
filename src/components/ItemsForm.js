@@ -23,11 +23,10 @@ class ItemsForm extends Component{
     }
     
     state = {
-        user_id: '',
+        user_id: this.props.user.user_id,
         category_id: 1,
         name: '',
         description: '',
-        qty: '',
         price: '',
         image_url: ''
     }
@@ -44,13 +43,12 @@ class ItemsForm extends Component{
         
         event.preventDefault()
         this.props.createItem(this.state, this.props.history)
-        // this.props.history.push("/items/")
+      
         this.setState({
             user_id: '',
             category_id: 1,
             name: '',
             description: '',
-            qty: '',
             price: '',
             image_url: ''
         })
@@ -65,20 +63,16 @@ class ItemsForm extends Component{
             )
         },this)
         
-      
-
-        // 
         return(
             
             <div className="container">
                 <br></br>
                 <strong>Post new item:</strong><hr></hr>
-            {/* <div> */}
-
+    
             <Form onSubmit={this.handleSubmit}>
                 <Form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
                     <Col sm="10">
-                    <Form.Control type="hidden" name="user_id" defaultValue={this.state.user_id} />
+                    <Form.Control type="hidden" name="user_id" defaultValue={this.state.user_id} onSubmit={this.handleChange}/>
                     </Col>
                 </Form.Group>
                 <Form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
@@ -129,7 +123,7 @@ class ItemsForm extends Component{
                 </Button>
             </Form>
 
-            {/* </div> */}
+
         </div>
         )
     }
@@ -142,7 +136,6 @@ class ItemsForm extends Component{
 const mapStateToProps = state =>{
     return{
         categories: state.categories,
-        // user: state.user
     }
 }
 
