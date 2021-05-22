@@ -60,6 +60,17 @@ export default function SignIn() {
           Sign in
         </Typography>
         <form className={classes.form} noValidate>
+        <TextField
+            variant="outlined"
+            margin="normal"
+            required
+            fullWidth
+            id="username"
+            label="Email Address"
+            name="email"
+            autoComplete="email"
+            autoFocus
+          />
           <TextField
             variant="outlined"
             margin="normal"

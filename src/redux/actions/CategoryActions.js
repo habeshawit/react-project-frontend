@@ -1,15 +1,21 @@
 export const getCategories = () => {
 // 
     return (dispatch) =>{
-        fetch('http://localhost:3001/api/v1/categories')
+        fetch('http://localhost:3001/api/v1/categories', {
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }, 
+            method: 'GET', 
+          }
+        )
             .then((res) => res.json())
             .then((category) => 
                 dispatch({
                     type: 'FETCH_CATEGORIES',
                     payload: category
-                })              
-        )
-    }
+                })                       
+        ) }
 }
 
 export const getCategory = (CategoryId) => {

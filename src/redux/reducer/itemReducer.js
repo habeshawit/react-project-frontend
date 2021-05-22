@@ -14,9 +14,9 @@ export default (state = [], action) => {
         case 'ERROR':
             
             alert(action.payload.message)
-            // return action.payload
-            // return state
-            return [...state, action.payload]
+            return action.payload
+            // // return state
+            // return [...state, action.payload]
             
             // return{...state, items: [...state, action.payload]}
         default:

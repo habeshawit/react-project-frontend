@@ -9,11 +9,12 @@ class CategoriesList extends Component {
 
     componentDidMount(){
         this.props.getCategories();
-        // 
+        console.log(this.props.categories);
     }
 
     
     render(){
+        // 
         return (
             <div>
                 <div className="categoryNav">

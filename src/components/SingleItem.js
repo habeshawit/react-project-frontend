@@ -14,19 +14,21 @@ function SingleItem(props) {
     }
 // 
     return (
-        
+       
         <div className="col">
-            <div className = "card h-100" key={props.item.id}>
+            {props.item.user ? <div className = "card h-100" key={props.item.id}>
                 <center><h5>{props.item.name}</h5></center>
                 <Link to={`/items/${props.item.id}`}><img src={props.item.image_url}  width="245" height="245"></img></Link>
                 <p></p>${props.item.price}
-                {/* {props.current_user.id == props.item.user.id? 
+                {props.current_user.id == props.item.user.id? 
                     <div>
                         <button onClick={handleDelete}>Delete</button>
                     </div>
-                    : null} */}
+                    : null}
                 
             </div>
+            : null}
+            
         </div>
         
     )

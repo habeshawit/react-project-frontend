@@ -30,7 +30,7 @@ export const createItem = (newItemData, history) =>{
             if(response.ok){
                 return response.json();
             } else {
-                debugger
+                
                 // throw new Error(response.statusText);
                 return response.json();
                 
