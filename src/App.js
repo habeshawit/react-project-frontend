@@ -161,6 +161,7 @@ class App extends Component {
       isLoggedIn: false,
       user: {}
      };
+     
   }
 
   componentDidMount() {
@@ -191,15 +192,14 @@ class App extends Component {
     isLoggedIn: false,
     user: {}
     })
-    
-    // this.props.history.push('/')
+
   }
 
 render() {
 
     return (
       <div >
-         <Navbar collapseOnSelect expand="lg" className="color-nav" >
+         <Navbar collapseOnSelect expand="lg" className="color-nav">
             {/* <Container> */}
               <Navbar.Brand href="/">Simple Sales</Navbar.Brand>
               <Navbar.Toggle aria-controls="responsive-navbar-nav" />
@@ -213,7 +213,7 @@ render() {
                     {/* <Nav.Link onClick={this.handleLogout}>Logout</Nav.Link> */}
                     <Nav.Link href="/logout">Logout</Nav.Link>
                   </Nav> : null}
-                {this.state.user.username? <Navbar>Welcome,<strong>{this.state.user.username}</strong></Navbar> : null}
+                {this.state.user.username? <Navbar><strong> Welcome, {this.state.user.username }</strong></Navbar> : null}
               </Navbar.Collapse>
             {/* </Container> */}
         </Navbar>
@@ -266,10 +266,6 @@ render() {
 </Container>
         
       </div>
-
-
-
-// </div>
         
     );
   }

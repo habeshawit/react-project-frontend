@@ -7,16 +7,16 @@
 .color-nav{
   /* background-image: url("https://assets.entrepreneur.com/content/3x2/2000/20191219170611-GettyImages-1152794789.jpeg"); */
   background-color: darkcyan;
-  color: white
-  
-}
+  color: white;
+  font-family: Arial;
 
+}
 
 .container2{
   text-align: left;
   /* margin: 250px; */
   /* background-color: black; */
-  /* margin: 25px; */
+  margin: 25px;
 }
 
 

@@ -1,8 +1,6 @@
 import React, {Component} from 'react'
-// import Categories from './old components/Categories';
 import {getItems, deleteItem} from '../redux/actions/ItemActions'
 import {connect} from 'react-redux'
-import SingleItem from '../components/SingleItem'
 import CategoriesList from '../components/CategoriesList';
 import {Link} from 'react-router-dom'
 import Button from '@material-ui/core/Button';
@@ -46,7 +44,6 @@ class ItemsList extends Component {
                                 <div className="container2">
                                     <div className= "row row-cols-1 row-cols-md-5 g-4">
                                         {this.props.items.map(item => 
-                                        // <SingleItem current_user={this.props.user} item={item}/>
                                         <div className="col">
                         {item.user ? 
                             <div className = "card h-100" key={item.id}>

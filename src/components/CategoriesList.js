@@ -1,8 +1,8 @@
 import React, {Component} from 'react'
-// import Categories from './Categories';
 import {getCategories} from '../redux/actions/CategoryActions'
 import {connect} from 'react-redux'
-import SingleCategory from '../components/SingleCategory'
+import {NavLink, Link} from 'react-router-dom'
+
 
 
 class CategoriesList extends Component {
@@ -14,12 +14,15 @@ class CategoriesList extends Component {
 
     
     render(){
-        // 
         return (
             <div>
                 <div className="categoryNav">
                     <p>
-                        {this.props.categories.map(category => <SingleCategory category={category}/>)}
+                        {this.props.categories.map(category => 
+                        <NavLink to={`/categories/${category.id}`} style={{ textDecoration: 'none', color: 'darkcyan' }}>
+                            <>{category.name}      |      </>
+                        </NavLink>
+                        )}
                     </p>
                 </div>
             </div>

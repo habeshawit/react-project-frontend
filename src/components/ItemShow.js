@@ -2,10 +2,7 @@
 import React, { Component } from "react";
 import {deleteItem} from '../redux/actions/ItemActions'
 import { connect } from 'react-redux'
-// import Button from 'react-bootstrap/Button';
 import Button from '@material-ui/core/Button';
-
-
 
 class ItemShow extends Component {
   
@@ -25,9 +22,7 @@ class ItemShow extends Component {
 
   handleDelete = () =>{
     this.props.deleteItem(this.state.item.id, this.props.history)
-    
-    // this.props.history.push('/items')
-}
+  }
 
   render() {
 
