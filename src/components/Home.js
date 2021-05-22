@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom'
+import ItemsList from '../components/ItemsList'
 
 const Home = (props) => {
   return (
@@ -14,8 +15,7 @@ const Home = (props) => {
                  <br></br>
                 <Link to='/signup'>Sign Up</Link>
             </div>
-        }
-      
+        }      
     </div>
   );
 };

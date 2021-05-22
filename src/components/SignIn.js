@@ -17,8 +17,8 @@ function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {'Copyright © '}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+      <Link color="inherit" href="/">
+        Simple Sales
       </Link>{' '}
       {new Date().getFullYear()}
       {'.'}
@@ -46,7 +46,7 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function SignIn() {
+export default function SignIn(props) {
   const classes = useStyles();
 
   return (
@@ -59,17 +59,20 @@ export default function SignIn() {
         <Typography component="h1" variant="h5">
           Sign in
         </Typography>
-        <form className={classes.form} noValidate>
+        <form onSubmit={props.handleSubmit} className={classes.form} noValidate>
         <TextField
             variant="outlined"
             margin="normal"
             required
             fullWidth
             id="username"
-            label="Email Address"
-            name="email"
+            label="User Name"
+            name="username"
             autoComplete="email"
             autoFocus
+            value={props.username}
+            onChange={props.handleChange}
+              
           />
           <TextField
             variant="outlined"
@@ -80,7 +83,9 @@ export default function SignIn() {
             label="Email Address"
             name="email"
             autoComplete="email"
-            autoFocus
+            // autoFocus
+            value={props.email}
+            onChange={props.handleChange}
           />
           <TextField
             variant="outlined"
@@ -92,6 +97,8 @@ export default function SignIn() {
             type="password"
             id="password"
             autoComplete="current-password"
+            value={props.password}
+            onChange={props.handleChange}
           />
           <FormControlLabel
             control={<Checkbox value="remember" color="primary" />}
@@ -107,13 +114,9 @@ export default function SignIn() {
             Sign In
           </Button>
           <Grid container>
-            <Grid item xs>
-              <Link href="#" variant="body2">
-                Forgot password?
-              </Link>
-            </Grid>
+
             <Grid item>
-              <Link href="#" variant="body2">
+              <Link href="/signup" variant="body2">
                 {"Don't have an account? Sign Up"}
               </Link>
             </Grid>

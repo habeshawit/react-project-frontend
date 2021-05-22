@@ -21,7 +21,7 @@ export default class ItemsApi extends Component{
         // 
         return(
             
-            <div className="container">    
+            <div>    
             <h1>Items for Sale</h1>
             <div className ="row row-cols-1 row-cols-md-4 g-4">
                  {this.state.items && this.state.items.length > 0 ? 

@@ -2,7 +2,8 @@
 import React, { Component } from "react";
 import {deleteItem} from '../redux/actions/ItemActions'
 import { connect } from 'react-redux'
-import Button from 'react-bootstrap/Button';
+// import Button from 'react-bootstrap/Button';
+import Button from '@material-ui/core/Button';
 
 
 
@@ -39,13 +40,13 @@ class ItemShow extends Component {
                     <div key={this.state.item.id}>       
                         <img src={this.state.item.image_url}  width="400" height="400"></img>
                         <p>${this.state.item.price}</p>
-                        <strong>Description: </strong><p>{this.state.item.description}</p>
-                        <p><strong>In Stock: </strong>{this.state.item.qty}</p>
+                        <h5>Description: </h5><p>{this.state.item.description}</p>
+                        {/* <p><strong>In Stock: </strong>{this.state.item.qty}</p> */}
                         {this.state.item.user ? 
                             <div>
-                                <strong>Seller Contact Info: </strong><p>{this.state.item.user.email}</p>
+                                <h5>Seller Contact Info: </h5><p>{this.state.item.user.email}</p>
                                 {this.state.item.user.id == this.props.user.id ? 
-                                    <Button onClick={this.handleDelete}>Delete</Button> : null}
+                                    <Button size="small" variant="outlined" color="secondary" onClick={this.handleDelete}>Delete</Button> : null}
                             </div>
                         
                         

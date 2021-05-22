@@ -4,6 +4,9 @@ import {getItems} from '../redux/actions/ItemActions'
 import {connect} from 'react-redux'
 import SingleItem from '../components/SingleItem'
 import CategoriesList from '../components/CategoriesList';
+import {Link} from 'react-router-dom'
+import Button from '@material-ui/core/Button';
+
 
 class ItemsList extends Component {
 
@@ -15,11 +18,21 @@ class ItemsList extends Component {
     render(){
         return (
             <div>
-                
-                <div className="container">
-                    <h1>
+        
+                <div>
+                    
+                    <br></br>
+                    <h1>Welcome to Simple Sales</h1>
+                    {this.props.user.id ? 
+                        null : 
+                        <div>
+                            <Button size="small" variant="outlined" color="secondary"><Link to='/login'>Log In</Link></Button> | | 
+                            <Button size="small" variant="outlined" color="secondary"><Link to='/signup'>Sign Up</Link></Button>     
+                        </div>
+                    }      
+                    <div>
                         <CategoriesList />                  
-                    </h1>
+                    </div>
                     <div className= "row row-cols-1 row-cols-md-4 g-4">
                         {this.props.items.map(item => <SingleItem current_user={this.props.user} item={item}/>)}
                     </div>
