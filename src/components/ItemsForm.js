@@ -14,7 +14,7 @@ class ItemsForm extends Component{
     }
     
     state = {
-        user_id: this.props.user.user_id,
+        user_id: '',
         category_id: 1,
         name: '',
         description: '',
@@ -35,7 +35,7 @@ class ItemsForm extends Component{
         this.props.createItem(this.state, this.props.history)
       
         this.setState({
-            user_id: '',
+            user_id: this.props.user.id,
             category_id: 1,
             name: '',
             description: '',
@@ -53,7 +53,8 @@ class ItemsForm extends Component{
         
         return(
             
-            <div className="container">
+            <div>
+
                 <br></br>
                 <strong>Post new item:</strong><hr></hr>
     

@@ -7,8 +7,7 @@ export default (state = [], action) => {
                 alert(action.payload.message)
                 return [...state, action.payload]
             }           
-        case 'DELETE_ITEM':   
-                     
+        case 'DELETE_ITEM':                   
             {alert(action.payload.message)
             return [...state, action.payload]}
         case 'ERROR':

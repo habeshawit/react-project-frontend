@@ -59,9 +59,7 @@ handleErrors = () => {
     return (
       <div>
         <ul>
-        {this.state.errors.map(error => {
-        return <li key={error}>{error}</li>
-          })
+        {this.state.errors.map(error => {alert(error)})
         }
         </ul>
       </div>

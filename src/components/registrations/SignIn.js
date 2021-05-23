@@ -60,7 +60,7 @@ export default function SignIn(props) {
           Sign in
         </Typography>
         <form onSubmit={props.handleSubmit} className={classes.form} noValidate>
-        <TextField
+        {/* <TextField
             variant="outlined"
             margin="normal"
             required
@@ -73,7 +73,7 @@ export default function SignIn(props) {
             value={props.username}
             onChange={props.handleChange}
               
-          />
+          /> */}
           <TextField
             variant="outlined"
             margin="normal"

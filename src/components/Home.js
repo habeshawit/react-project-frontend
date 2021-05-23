@@ -1,6 +1,6 @@
 import React from 'react';
 import Button from '@material-ui/core/Button';
-import {NavLink} from 'react-router-dom'
+import {NavLink} from 'react-router-dom';
 
 const divStyle = {
   color: 'blue',
@@ -13,14 +13,10 @@ const Home = (props) => {
     <div>
       <br></br><br></br>
         
-      <div className="container">
         <div className="jumbotron2">
-          <div className="container">
-              <br></br>
-            <h1>Welcome to Simple Sales</h1>
-          </div>
-      
-    </div>
+          <br></br>
+          <h1>Welcome to Simple Sales</h1>
+        </div>
           <div>
             <div class="center">
               <br></br>
@@ -44,7 +40,6 @@ const Home = (props) => {
             </div>
           </div>
         </div>
-      </div>
     </div>
    
   );
