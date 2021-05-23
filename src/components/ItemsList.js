@@ -65,7 +65,7 @@ class ItemsList extends Component {
                                     {/* <div className = "card h-100" key={item.id}> */}
                                     
                                     <Link to={`/items/${item.id}`}><img src={item.image_url} className="item-img"></img ></Link>
-                                    <h5><b>{item.name}</b></h5>
+                                    <h5>{item.name}</h5>
                                     <p>${item.price}</p>
                                     {this.props.user.id == item.user.id? 
                                         <div>
