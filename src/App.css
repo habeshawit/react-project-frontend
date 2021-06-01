@@ -74,13 +74,26 @@ footer p {
   background-color: #4e79a5 !important;
 }
 
+.navbar-brand{
+  font-size:30px!important;
+}
 
 .color-nav{
   background-color: darkcyan;
   color: white;
-  font-family: Arial;
-
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  padding-bottom: 0rem!important;
+  padding-top: 0rem!important;
 }
+
+.navbar a{
+  color: white!important;
+}
+
+.d-flex{
+  width: 300px;
+}
+
 
 .container2{
   text-align: left;

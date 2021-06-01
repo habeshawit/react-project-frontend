@@ -11,7 +11,7 @@ function ItemShow(props){
     fetch(`http://localhost:3001/api/v1/items/${props.match.params.id}`)
       .then((res) => res.json())
       .then((data) => setItem( data ));
-  });
+  },[]);
 
   const handleDelete = () =>{
     props.deleteItem(item.id, props.history)

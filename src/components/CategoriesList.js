@@ -7,7 +7,7 @@ function CategoriesList(props){
 
     useEffect(() => {
         props.getCategories();
-    });
+    },[]);
   
     return (
         <div>

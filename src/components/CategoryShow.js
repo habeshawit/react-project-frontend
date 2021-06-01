@@ -8,7 +8,7 @@ function CategoriesShow(props){
 
     useEffect(() => {
         props.getCategories();
-    });
+    },[]);
 
     const category = () => {
         return(

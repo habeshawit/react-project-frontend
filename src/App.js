@@ -75,7 +75,7 @@ class App extends Component {
               {this.state.user.username? <Navbar><strong> Welcome, {this.state.user.username }</strong>  <Nav.Link href="/logout"><strong className="nav-color" style={{ textDecoration: 'none', color: 'white' }}>Logout</strong></Nav.Link></Navbar> : null}
 
               <form className="d-flex">
-                <input type="search" placeholder="What are you looking for" autofocus="true" className= "form-control form-control col-sm-30" />
+                <input type="search" placeholder="What are you looking for?" autofocus="true" className= "form-control form-control col-sm-30" />
                 <button type="button" className="btn btn-warning" type="submit"><Icon.Search color="royalblue" /></button>
               </form>
              
