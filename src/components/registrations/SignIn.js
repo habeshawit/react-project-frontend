@@ -60,20 +60,6 @@ export default function SignIn(props) {
           Sign in
         </Typography>
         <form onSubmit={props.handleSubmit} className={classes.form} noValidate>
-        {/* <TextField
-            variant="outlined"
-            margin="normal"
-            required
-            fullWidth
-            id="username"
-            label="User Name"
-            name="username"
-            autoComplete="email"
-            autoFocus
-            value={props.username}
-            onChange={props.handleChange}
-              
-          /> */}
           <TextField
             variant="outlined"
             margin="normal"

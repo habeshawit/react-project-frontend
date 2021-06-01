@@ -2,6 +2,9 @@ import React, { Component } from 'react';
 import axios from 'axios'
 import Form from 'react-bootstrap/Form'
 import Button from 'react-bootstrap/Button';
+import {Link} from 'react-router-dom'
+
+
 
 class Signup extends Component {
   constructor(props) {
@@ -121,9 +124,13 @@ class Signup extends Component {
                         onChange={this.handleChange} />
               </Form.Group>
               <Button variant="success" type="submit">
-                Submit
+                Sign Up
               </Button>
             </Form>
+
+            <Link to="/login" variant="body2">
+              {"Already have an account? Log In"}
+            </Link>
 
           <div>
             {

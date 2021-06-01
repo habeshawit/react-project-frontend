@@ -17,6 +17,7 @@ class ItemsForm extends Component{
         user_id: '',
         category_id: 1,
         name: '',
+        condition: 'New',
         description: '',
         price: '',
         image_url: ''
@@ -38,6 +39,7 @@ class ItemsForm extends Component{
             user_id: this.props.user.id,
             category_id: 1,
             name: '',
+            condition: 'New',
             description: '',
             price: '',
             image_url: ''
@@ -80,6 +82,22 @@ class ItemsForm extends Component{
                         </Form.Label>
                         <Col sm="10">
                         <Form.Control type="text" placeholder="Name" value={this.state.name} name="name" onChange={this.handleChange} />
+                        </Col>
+                    </Form.Group>
+                    <Form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
+                        <Form.Label column sm="2">
+                            Condition
+                        </Form.Label>
+                        <Col sm="10">
+                            <select name="condition" onChange={this.handleChange}>
+                                {/* <option>Open this select menu</option> */}
+                                <option value="New">New</option>
+                                <option value="Open box (never used)">Open box (never used)</option>
+                                <option value="Reconditioned/Refurbished">Reconditioned/Refurbished</option>
+                                <option value="Used (like new)">Used (like new)</option>
+                                <option value="Used (normal wear)">Used (normal wear)</option>
+                                <option value="Other (see description)">Other (see description)</option>
+                            </select>      
                         </Col>
                     </Form.Group>
                     <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">

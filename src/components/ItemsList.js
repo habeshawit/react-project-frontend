@@ -33,12 +33,10 @@ class ItemsList extends Component {
                     null : 
                     <div>
                     <hr></hr>
-
                         <Button size="small" variant="outlined" color="secondary"><Link to='/login'>Log In</Link></Button> | | 
                         <Button size="small" variant="outlined" color="secondary"><Link to='/signup'>Sign Up</Link></Button>     
                     <hr></hr>
-                    </div>
-                    
+                    </div>      
                 }  
                 <p>What are you looking for? </p>
                 <div className="form-group row">
@@ -53,32 +51,25 @@ class ItemsList extends Component {
                 <div>
                     <CategoriesList />                  
                 </div>
-                {/* <div className="container2"> */}
                     <div className= "row">
                         {this.props.items.map(item => 
-                            // <div className="col">
                             <div className = "col-sm-3">
                             
                                 {item.user ? 
                                 <div className="item-box">
-                                    {/* <div key={item.id}> */}
-                                    {/* <div className = "card h-100" key={item.id}> */}
-                                    
                                     <Link to={`/items/${item.id}`}><img src={item.image_url} className="item-img"></img ></Link>
-                                    <h5>{item.name}</h5>
-                                    <p>${item.price}</p>
+                                    <p>{item.name}</p>
+                                    <b>${item.price}</b>
                                     {this.props.user.id == item.user.id? 
-                                        <div>
+                                        <div className="btnn">
                                             <Button size="small" variant="outlined" color="secondary" onClick={(e) => this.handleDelete(item.id, e)} >Delete</Button>
                                         </div>
                                         : null}         
                                     </div>
                                 : null}  
                             </div>  
-                            // </div>
                         )}
                     </div>
-                {/* </div>                 */}
             </div>
         )
     }
