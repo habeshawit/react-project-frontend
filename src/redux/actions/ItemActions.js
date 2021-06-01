@@ -22,7 +22,6 @@ export const createItem = (newItemData, history) =>{
             body: JSON.stringify({item: newItemData})
         })
         .then((response) => {
-            // 
             if(response.ok){
                 return response.json();
             } else {

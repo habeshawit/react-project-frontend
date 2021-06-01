@@ -75,28 +75,13 @@ class App extends Component {
               {this.state.user.username? <Navbar><strong> Welcome, {this.state.user.username }</strong>  <Nav.Link href="/logout"><strong className="nav-color" style={{ textDecoration: 'none', color: 'white' }}>Logout</strong></Nav.Link></Navbar> : null}
 
               <form className="d-flex">
-                {/* <input className="form-control me-4" type="search" placeholder="Whar are you looking for?" aria-label="Search"></input> */}
                 <input type="search" placeholder="What are you looking for" autofocus="true" className= "form-control form-control col-sm-30" />
                 <button type="button" className="btn btn-warning" type="submit"><Icon.Search color="royalblue" /></button>
-                
-                {/* <button className="btn btn-outline-warning" type="submit">Search</button> */}
               </form>
-              
-              {/* <div className="form-group row">
-                  <div className ="col-sm-3 no-right-padding">
-                    <input type="text" placeholder="Search for an item" autofocus="true" className= "form-control form-control-sm" />
-                  </div>
-
-                  <div className="col-sm-1 no-left-padding" className="search-button">
-                    <button type="button" className="btn btn-warning" ><Icon.Search color="royalblue" /></button>
-                  </div>
-                </div>   */}
-
-
-
+             
         </Navbar>
 
-        <Container >
+        <Container  >
           <BrowserRouter>
             <Switch>
               <Route exact path='/' render={props => (<Home {...props} user={this.state.user}/>)}/>

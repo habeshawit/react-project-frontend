@@ -7,7 +7,7 @@ const divStyle = {
   backgroundImage: 'url(https://www.groovypost.com/wp-content/uploads/2019/12/sell-items-online-sale-featured-1000x450.jpg)',
 };
 
-const Home = (props) => {
+function Home (props) {
   return (
     
     <div>

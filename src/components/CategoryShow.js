@@ -1,26 +1,26 @@
-import React, {Component} from 'react'
+import React, {useState, useEffect } from 'react'
 import {getCategories} from '../redux/actions/CategoryActions'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'
 import Button from '@material-ui/core/Button';
 
-class CategoriesShow extends Component {
+function CategoriesShow(props){
 
-    componentDidMount(){
-        this.props.getCategories();
-    }
+    useEffect(() => {
+        props.getCategories();
+    });
 
-    category = () => {
+    const category = () => {
         return(
-            this.props.categories.find(({id}) => id == this.props.match.params.id)
+            props.categories.find(({id}) => id == props.match.params.id)
         )
     }
 
-    handleDelete = () =>{
-        this.props.deleteItem(this.state.item.id, this.props.history)
+    const handleDelete = () =>{
+        props.deleteItem(this.state.item.id, props.history)
     }
     
-    renderItems(category){
+    const renderItems = (category) =>{
         return(
             <div>
             <h1>{category.name}</h1>
@@ -32,9 +32,9 @@ class CategoriesShow extends Component {
                             <center><h5>{item.name}</h5></center>
                             <Link to={`/items/${item.id}`}><img src={item.image_url}></img></Link>
                             <p>${item.price}</p>
-                            {this.props.user.id == item.user.id? 
+                            {props.user.id == item.user.id? 
                                 <div>
-                                    <Button size="small" variant="outlined" color="secondary" onClick={(e) => this.handleDelete(item.id, e)} >Delete</Button>
+                                    <Button size="small" variant="outlined" color="secondary" onClick={(e) => handleDelete(item.id, e)} >Delete</Button>
                                 </div>
                                 : null}                      
                         </div>
@@ -46,14 +46,11 @@ class CategoriesShow extends Component {
         )      
     }
     
-    render(){
-        return (
-            <div>
-                {this.category() ? this.renderItems(this.category()): null}
-            </div>
-        )
-    }
-
+    return (
+        <div>
+            {category() ? renderItems(category()): null}
+         </div>
+    )
 }
 
 const mapStateToProps = state =>{

@@ -1,32 +1,29 @@
-import React, {Component} from 'react'
+import React, {useState, useEffect } from 'react'
 import {getCategories} from '../redux/actions/CategoryActions'
 import {connect} from 'react-redux'
 import {NavLink} from 'react-router-dom'
 
-class CategoriesList extends Component {
+function CategoriesList(props){
 
-    componentDidMount(){
-        this.props.getCategories();
-        console.log(this.props.categories);
-    }
-   
-    render(){
-        return (
-            <div>
-                <div className="categoryNav">
-                    <p>
-                        {this.props.categories.map(category => 
-                        <NavLink to={`/categories/${category.id}`} style={{ textDecoration: 'none', color: 'darkcyan' }}>
-                            <>{category.name}      |      </>
-                        </NavLink>
-                        )}
-                    </p>
-                </div>
+    useEffect(() => {
+        props.getCategories();
+    });
+  
+    return (
+        <div>
+            <div className="categoryNav">
+                <p>
+                    {props.categories.map(category => 
+                    <NavLink to={`/categories/${category.id}`} style={{ textDecoration: 'none', color: 'darkcyan' }}>
+                        <>{category.name}      |      </>
+                    </NavLink>
+                     )}
+                </p>
             </div>
-        )
-    }
-
+        </div>
+    )
 }
+
 
 const mapStateToProps = state =>{
     return{
