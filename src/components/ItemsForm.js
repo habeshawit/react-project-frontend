@@ -6,6 +6,8 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from '@material-ui/core/Button';
+import ImageUploader from 'react-images-upload';
+import { FormatListBulletedSharp } from '@material-ui/icons';
 
 class ItemsForm extends Component{
    
@@ -20,19 +22,42 @@ class ItemsForm extends Component{
         condition: 'New',
         description: '',
         price: '',
-        image_url: ''
+        image_url: '',
+        // images: []
     }
+
+    //if adding image upload
+    // handleUpload= (event) => {
+    //     this.setState({
+    //         [event.target.name]: event.target.files[0]
+    //     })
+    // }
 
     handleChange= (event) => {
         this.setState({
             [event.target.name]: event.target.value
         })
     }
-    
+
     handleSubmit = (event) => {
+
         this.state.user_id = this.props.user.id
         
         event.preventDefault()
+
+        //If adding image upload
+        // const data = new FormData
+        
+        // data.append('item[user_id]', this.state.user_id)
+        // data.append('item[category_id]', this.state.category_id)
+        // data.append('item[name]', this.state.name)
+        // data.append('item[condition]', this.state.condition)
+        // data.append('item[description]', this.state.description)
+        // data.append('item[price]', this.state.price)
+        // data.append('item[image_url]', this.state.image_url)
+        // data.append('item[images]', this.state.images)
+
+
         this.props.createItem(this.state, this.props.history)
       
         this.setState({
@@ -42,7 +67,8 @@ class ItemsForm extends Component{
             condition: 'New',
             description: '',
             price: '',
-            image_url: ''
+            image_url: '',
+            // images: []
         })        
     }
 
@@ -61,6 +87,21 @@ class ItemsForm extends Component{
                 <strong>Post new item:</strong><hr></hr>
     
                 <Form onSubmit={this.handleSubmit}>
+              
+            {/* <ImageUploader
+                withIcon={true}
+                buttonText='Choose images'
+                onChange={this.handleChange}
+                imgExtension={['.jpg', '.gif', '.png', '.gif']}
+                maxFileSize={5242880}
+                filename={this.state.images}
+            /> */}
+        
+                    {/* <Form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
+                        <Col sm="10">
+                        <Form.Control type="file" name="images" accept="image/*" multiple={true} defaultValue={this.state.images} onChange={this.handleUpload}/>
+                        </Col>
+                    </Form.Group> */}
                     <Form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
                         <Col sm="10">
                         <Form.Control type="hidden" name="user_id" defaultValue={this.state.user_id} onSubmit={this.handleChange}/>
@@ -90,7 +131,6 @@ class ItemsForm extends Component{
                         </Form.Label>
                         <Col sm="10">
                             <select name="condition" onChange={this.handleChange}>
-                                {/* <option>Open this select menu</option> */}
                                 <option value="New">New</option>
                                 <option value="Open box (never used)">Open box (never used)</option>
                                 <option value="Reconditioned/Refurbished">Reconditioned/Refurbished</option>

@@ -1,4 +1,4 @@
-import React, {useState, useEffect } from 'react'
+import React, {useEffect } from 'react'
 import {getCategories} from '../redux/actions/CategoryActions'
 import {connect} from 'react-redux'
 import {Link} from 'react-router-dom'

@@ -8,20 +8,15 @@ import * as Icon from 'react-bootstrap-icons';
 
 function ItemsList(props){
 
-  const [items, setItems] = useState({});
+  const searchInputRef = React.useRef(null);
 
   useEffect(() => {
 	  props.getItems();
+    searchInputRef.current.focus();
   },[]);
 
-  const handleDelete = (itemID) =>{
-	
-	props.deleteItem(itemID, props.history)
-	setItems({
-		items: props.items.filter(i => i.id != itemID),          
-		},[]);
-		
-	  props.getItems()
+  const handleDelete = (itemId) =>{
+	  props.deleteItem(itemId, props.history)
   }
 
 	return (
@@ -40,7 +35,7 @@ function ItemsList(props){
 				<p>What are you looking for? </p>
 				<div className="form-group row">
 					<div className ="col-sm-4 no-right-padding">
-						<input type="text" placeholder="Search for an item" autofocus="true" className= "form-control form-control-sm" />
+						<input type="text" placeholder="Search for an item" ref={searchInputRef} className= "form-control form-control-sm" />
 					</div>
 
 					<div className="col-sm-1 no-left-padding" className="search-button">
@@ -52,27 +47,15 @@ function ItemsList(props){
 				</div>
 						<div className= "row">
 								{props.items.map(item => 
-										<div className = "col-sm-3">
-										
-												{item.user ? 
-												<div className="item-box">
-														<Link to={`/items/${item.id}`}><img src={item.image_url} className="item-img"></img ></Link>
-														<p>{item.name}</p>
-														<b>${item.price}</b>
-														{props.user.id == item.user.id? 
-																<div className="btnn">
-																		<Button size="small" variant="outlined" color="secondary" onClick={(e) => handleDelete(item.id, e)} >Delete</Button>
-																</div>
-																: null}         
-																</div>
-														: null}  
-												</div>  
+										<Item {...item} userId={props.user.id} handleDelete={handleDelete} key={`item${item.id}`}/>
 										)}
 								</div>
 				</div>
 	)
 
 }
+
+
 
 const mapStateToProps = state =>{
     return{
@@ -83,3 +66,32 @@ const mapStateToProps = state =>{
 //mapstatetoprops gets the state in our redux store, getItems action will dispatch the action we are importing from itemActions, through componentDidMount
 
 export default connect(mapStateToProps, {getItems, deleteItem})(ItemsList)
+
+
+
+const Item = ({user, id, image_url, name, price, userId, handleDelete}) => {
+  const [count, setCount] = useState(0);
+  
+  const handleVote = () =>{
+    setCount(
+      count +1 
+    )
+  }
+
+  return <div className = "col-sm-3">
+										
+    {user ? 
+    <div className="item-box">
+        <Link to={`/items/${id}`}><img src={image_url} className="item-img"></img ></Link>
+        <button onClick={handleVote}>Upvote</button> {count}
+        <p>{name}</p>
+        <b>${price}</b>
+        {userId == user.id? 
+            <div className="btnn">
+                <Button size="small" variant="outlined" color="secondary" onClick={(e) => handleDelete(id, e)} >Delete</Button>
+            </div>
+            : null}         
+    </div>
+    : null}  
+  </div>  
+}

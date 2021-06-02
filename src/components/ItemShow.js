@@ -18,6 +18,7 @@ function ItemShow(props){
   }
 
     return (      
+      
       <div className="container"> 
         <br></br>
 
@@ -25,7 +26,9 @@ function ItemShow(props){
           
           <div className="col" >
             <br></br>
-            <img src={item.image_url}  width="550" height="550"></img>       
+            <img src={item.image_url}  width="550" height="550"></img> 
+            {/* {item.images ? 
+              <div>{item.images.map(image => <div><img src={image} className="background-image"  alt="background" /></div>)}</div>: null} */}  
           </div>
 
           <div className="col">
