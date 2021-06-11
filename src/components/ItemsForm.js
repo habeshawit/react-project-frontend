@@ -6,6 +6,8 @@ import Form from 'react-bootstrap/Form';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Button from '@material-ui/core/Button';
+import Container from 'react-bootstrap/Container';
+
 import ImageUploader from 'react-images-upload';
 import { FormatListBulletedSharp } from '@material-ui/icons';
 
@@ -16,7 +18,6 @@ class ItemsForm extends Component{
     }
     
     state = {
-        user_id: '',
         category_id: 1,
         name: '',
         condition: 'New',
@@ -41,7 +42,7 @@ class ItemsForm extends Component{
 
     handleSubmit = (event) => {
 
-        this.state.user_id = this.props.user.id
+        // this.state.user_id = this.props.user.id
         
         event.preventDefault()
 
@@ -58,10 +59,9 @@ class ItemsForm extends Component{
         // data.append('item[images]', this.state.images)
 
 
-        this.props.createItem(this.state, this.props.history)
+        this.props.createItem({...this.state, user_id: this.props.user.id}, this.props.history)
       
         this.setState({
-            user_id: this.props.user.id,
             category_id: 1,
             name: '',
             condition: 'New',
@@ -80,7 +80,7 @@ class ItemsForm extends Component{
         },this)
         
         return(
-            
+            <Container  >
             <div>
 
                 <br></br>
@@ -102,11 +102,11 @@ class ItemsForm extends Component{
                         <Form.Control type="file" name="images" accept="image/*" multiple={true} defaultValue={this.state.images} onChange={this.handleUpload}/>
                         </Col>
                     </Form.Group> */}
-                    <Form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
+                    {/* <Form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
                         <Col sm="10">
                         <Form.Control type="hidden" name="user_id" defaultValue={this.state.user_id} onSubmit={this.handleChange}/>
                         </Col>
-                    </Form.Group>
+                    </Form.Group> */}
                     <Form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
                         <Form.Label column sm="2">
                             Category
@@ -170,6 +170,7 @@ class ItemsForm extends Component{
                     </Button>
                 </Form>
             </div>
+            </Container>
         )
     }   
 }

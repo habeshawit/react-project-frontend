@@ -74,14 +74,14 @@ class App extends Component {
               </Navbar.Collapse>
               {this.state.user.username? <Navbar><strong> Welcome, {this.state.user.username }</strong>  <Nav.Link href="/logout"><strong className="nav-color" style={{ textDecoration: 'none', color: 'white' }}>Logout</strong></Nav.Link></Navbar> : null}
 
-              <form className="d-flex">
+              {/* <form className="d-flex">
                 <input type="search" placeholder="What are you looking for?" className= "form-control form-control col-sm-30" />
                 <button type="button" className="btn btn-warning" type="submit"><Icon.Search color="royalblue" /></button>
-              </form>
+              </form> */}
              
         </Navbar>
 
-        <Container  >
+        {/* <Container  > */}
           <BrowserRouter>
             <Switch>
               <Route exact path='/' render={props => (<Home {...props} user={this.state.user}/>)}/>
@@ -97,7 +97,7 @@ class App extends Component {
               <Route exact path='/logout' render={props => (<Logout {...props} user={this.state.user} handleLogout={this.handleLogout} />)}/> 
             </Switch>
           </BrowserRouter>
-        </Container>      
+        {/* </Container>       */}
       </div>   
     );
   }

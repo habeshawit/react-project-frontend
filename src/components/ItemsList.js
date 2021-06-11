@@ -12,7 +12,7 @@ function ItemsList(props){
 
   useEffect(() => {
 	  props.getItems();
-    searchInputRef.current.focus();
+    // searchInputRef.current.focus();
   },[]);
 
   const handleDelete = (itemId) =>{
@@ -20,37 +20,41 @@ function ItemsList(props){
   }
 
 	return (
-		<div className="container">                         
-				<br></br>
-				<h1>Welcome to Simple Sales</h1>
+		<div className="container2">                         
+				{/* <h1>Welcome to Simple Sales</h1> */}
 				{props.user.id ? 
 						null : 
 						<div>
-						<hr></hr>
+						{/* <hr></hr> */}
 								<Button size="small" variant="outlined" color="secondary"><Link to='/login'>Log In</Link></Button> | | 
 								<Button size="small" variant="outlined" color="secondary"><Link to='/signup'>Sign Up</Link></Button>     
 						<hr></hr>
 						</div>      
 				}  
-				<p>What are you looking for? </p>
-				<div className="form-group row">
-					<div className ="col-sm-4 no-right-padding">
-						<input type="text" placeholder="Search for an item" ref={searchInputRef} className= "form-control form-control-sm" />
-					</div>
+				 {/* <div className="fixed-header2"> */}
+			{/* <br></br> */}
+            What are you looking for? 
+            
+            <div className="form-group row">
+              <div className ="col-sm-4 no-right-padding">
+                <input type="text" placeholder="Search for an item" className= "form-control form-control-sm" />
+              </div>
 
-					<div className="col-sm-1 no-left-padding" className="search-button">
-						<button type="button" className="btn btn-warning" ><Icon.Search color="royalblue" /></button>
-					</div>
-				</div>    
-				<div>
-						<CategoriesList />                  
+              <div className="col-sm-1 no-left-padding" className="search-button">
+                <button type="button" className="btn btn-warning" ><Icon.Search color="royalblue" /></button>
+              </div>
+            </div>    
+
+            <div>
+                <CategoriesList /> <hr></hr>                 
+            </div>
+        {/* </div> */}
+
+				<div className="item-grid">
+					{props.items.map(item => <Item {...item} userId={props.user.id} handleDelete={handleDelete} key={`item${item.id}`}/>)}
 				</div>
-						<div className= "row">
-								{props.items.map(item => 
-										<Item {...item} userId={props.user.id} handleDelete={handleDelete} key={`item${item.id}`}/>
-										)}
-								</div>
-				</div>
+
+		</div>
 	)
 
 }
@@ -70,28 +74,35 @@ export default connect(mapStateToProps, {getItems, deleteItem})(ItemsList)
 
 
 const Item = ({user, id, image_url, name, price, userId, handleDelete}) => {
-  const [count, setCount] = useState(0);
+//   const [count, setCount] = useState(0);
   
-  const handleVote = () =>{
-    setCount(
-      count +1 
-    )
-  }
+//   const handleVote = () =>{
+//     setCount(
+//       count +1 
+//     )
+//   }
 
-  return <div className = "col-sm-3">
+  return <div className="item-box">
 										
-    {user ? 
-    <div className="item-box">
-        <Link to={`/items/${id}`}><img src={image_url} className="item-img"></img ></Link>
-        <button onClick={handleVote}>Upvote</button> {count}
-        <p>{name}</p>
-        <b>${price}</b>
-        {userId == user.id? 
-            <div className="btnn">
-                <Button size="small" variant="outlined" color="secondary" onClick={(e) => handleDelete(id, e)} >Delete</Button>
-            </div>
-            : null}         
+    {user ? <Link to={`/items/${id}`}>
+    <div className="item-box-inner">
+		<div className="item-box-inner2">
+        	<img className="image" src={image_url} className="item-img"></img >
+        	{/* <button onClick={handleVote}>Upvote</button> {count} */}
+		</div>  
+
+		<div className="item-box-text">
+			<h5>{name}</h5>
+			${price}
+			<div className="user-location">{user.location}</div>
+
+			{userId == user.id? 
+				<div className="btnn">
+					<Button size="small" variant="outlined" color="secondary" onClick={(e) => handleDelete(id, e)} >Delete</Button>
+				</div>
+				: null}  
+		</div>  
     </div>
-    : null}  
+    </Link>: null}  
   </div>  
 }

@@ -3,6 +3,9 @@ import {getCategories} from '../redux/actions/CategoryActions'
 import {connect} from 'react-redux'
 import {NavLink} from 'react-router-dom'
 
+import Button from '@material-ui/core/Button';
+
+
 function CategoriesList(props){
 
     useEffect(() => {
@@ -12,13 +15,15 @@ function CategoriesList(props){
     return (
         <div>
             <div className="categoryNav">
-                <p>
+                {/* <p> */}
                     {props.categories.map(category => 
-                    <NavLink key={category.id} to={`/categories/${category.id}`} style={{ textDecoration: 'none', color: 'darkcyan' }}>
-                        <>{category.name}      |      </>
-                    </NavLink>
+                   <Button> 
+                        <NavLink key={category.id} to={`/categories/${category.id}`} style={{ textDecoration: 'none', color: 'darkcyan' }}>
+                            <div className="cat">{category.name} </div>
+                        </NavLink>
+                    </Button>
                      )}
-                </p>
+                {/* </p> */}
             </div>
         </div>
     )

@@ -22,7 +22,7 @@ function CategoriesShow(props){
     
     const renderItems = (category) =>{
         return(
-            <div>
+            <div className="container2">
             <h1>{category.name}</h1>
             <div className= "row row-cols-1 row-cols-md-4 g-4">         
                 {category.items.map(item => 
