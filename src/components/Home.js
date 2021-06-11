@@ -11,23 +11,24 @@ function Home (props) {
   return (
     
     <div>
-      <br></br><br></br>
-        
+
         <div className="jumbotron2">
           <br></br>
-          <h1>Welcome to Simple Sales</h1>
-        </div>
-          <div>
-            <div class="center">
+          <div className="home-container">
+          <h1>Welcome to Simple Sales</h1> 
+          <p>Looking for a change? Buy and sell furniture the easy way...</p>   
+            <div>
               <br></br>
                 {props.user.id ? 
-                  null : 
                   <div>          
-                    <Button size="small" variant="contained" color="default"><NavLink to='/login'>Log In</NavLink></Button> | | 
-                    <Button size="small" variant="contained" color="default"><NavLink to='/signup'>Sign Up</NavLink></Button>     
+                    <Button variant="contained" color="default"><NavLink to='/items'>Buy</NavLink></Button>
+                    <Button variant="contained" color="default"><NavLink to='/items/new'>Sell</NavLink></Button>
+                  </div> : 
+                  <div>          
+                    <Button variant="contained" color="default"><NavLink to='/login'>Get Started</NavLink></Button>
                   </div>
                 } 
-            <div className="row">
+            {/* <div className="row">
               <div className="col">
                 <br></br>
                 <h3 ><NavLink to='/items' style={{ textDecoration: 'none'}}>View Items</NavLink></h3>
@@ -37,8 +38,9 @@ function Home (props) {
                 <br></br>
                   <h3 ><NavLink to='/items/new' style={{ textDecoration: 'none'}}>Post an item</NavLink></h3>
               </div>
-            </div>
+            </div> */}
           </div>
+        </div>
         </div>
     </div>
    

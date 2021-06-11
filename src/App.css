@@ -40,14 +40,46 @@
   }
 }
 
+.home-container{
+  text-align: center;
+  /* color: rgb(12, 117, 117); */
+  color: white;
+  margin-top: 200px;
+  text-shadow: 0 0 10px #000; /* horizontal-offset vertical-offset 'blur' colour */
+  -moz-text-shadow: 0 0 2px #000;
+  -webkit-text-shadow: 0 0 2px #000;
+}
+
+.home-container h1{
+  font-size: 60px;
+  /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
+  font-family:fantasy ;
+  letter-spacing: 1rem;
+  
+}
+
+.home-container p{
+  font-size: 30px;
+}
+
+.home-container button{
+  margin: 30px;
+  background-color: teal;
+  border-radius: 1.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+  font-size: large;
+}
 
 .jumbotron2{
-  background-image: url("https://www.harfordhistory.org/wp-content/uploads/2020/09/Virtual-Yards-tiny.jpg");
+  background-image: url("./images/10.jpg");
 
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 325px;
+  height: 747px;
 }
 @media (min-width: 768px) {
   .jumbotron {
@@ -98,6 +130,10 @@ footer p {
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   padding-bottom: 0rem!important;
   padding-top: 0rem!important;
+}
+
+.color-nav{
+  font-size: 18px;
 }
 
 .navbar a{

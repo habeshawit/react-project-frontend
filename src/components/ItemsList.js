@@ -5,6 +5,7 @@ import CategoriesList from '../components/CategoriesList';
 import {Link} from 'react-router-dom'
 import Button from '@material-ui/core/Button';
 import * as Icon from 'react-bootstrap-icons';
+import Item from './Item'
 
 function ItemsList(props){
 
@@ -21,18 +22,15 @@ function ItemsList(props){
 
 	return (
 		<div className="container2">                         
-				{/* <h1>Welcome to Simple Sales</h1> */}
 				{props.user.id ? 
 						null : 
 						<div>
-						{/* <hr></hr> */}
-								<Button size="small" variant="outlined" color="secondary"><Link to='/login'>Log In</Link></Button> | | 
-								<Button size="small" variant="outlined" color="secondary"><Link to='/signup'>Sign Up</Link></Button>     
+							<Button size="small" variant="outlined" color="secondary"><Link to='/login'>Log In</Link></Button> | | 
+							<Button size="small" variant="outlined" color="secondary"><Link to='/signup'>Sign Up</Link></Button>     
 						<hr></hr>
 						</div>      
 				}  
-				 {/* <div className="fixed-header2"> */}
-			{/* <br></br> */}
+
             What are you looking for? 
             
             <div className="form-group row">
@@ -73,36 +71,27 @@ export default connect(mapStateToProps, {getItems, deleteItem})(ItemsList)
 
 
 
-const Item = ({user, id, image_url, name, price, userId, handleDelete}) => {
-//   const [count, setCount] = useState(0);
-  
-//   const handleVote = () =>{
-//     setCount(
-//       count +1 
-//     )
-//   }
-
-  return <div className="item-box">
+// const Item = ({user, id, image_url, name, price, userId, handleDelete}) => {
+//   return <div className="item-box">
 										
-    {user ? <Link to={`/items/${id}`}>
-    <div className="item-box-inner">
-		<div className="item-box-inner2">
-        	<img className="image" src={image_url} className="item-img"></img >
-        	{/* <button onClick={handleVote}>Upvote</button> {count} */}
-		</div>  
+//     {user ? <Link to={`/items/${id}`}>
+//     <div className="item-box-inner">
+// 		<div className="item-box-inner2">
+//         	<img className="image" src={image_url} className="item-img"></img >
+// 		</div>  
 
-		<div className="item-box-text">
-			<h5>{name}</h5>
-			${price}
-			<div className="user-location">{user.location}</div>
+// 		<div className="item-box-text">
+// 			<h5>{name}</h5>
+// 			${price}
+// 			<div className="user-location">{user.location}</div>
 
-			{userId == user.id? 
-				<div className="btnn">
-					<Button size="small" variant="outlined" color="secondary" onClick={(e) => handleDelete(id, e)} >Delete</Button>
-				</div>
-				: null}  
-		</div>  
-    </div>
-    </Link>: null}  
-  </div>  
-}
+// 			{userId == user.id? 
+// 				<div className="btnn">
+// 					<Button size="small" variant="outlined" color="secondary" onClick={(e) => handleDelete(id, e)} >Delete</Button>
+// 				</div>
+// 				: null}  
+// 		</div>  
+//     </div>
+//     </Link>: null}  
+//   </div>  
+// }

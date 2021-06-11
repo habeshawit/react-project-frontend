@@ -32,14 +32,18 @@ function ItemShow(props){
           </div>
 
           <div className="col">
-          <br></br>
-          <h1>{item.name}</h1>
-          <h2>${item.price}</h2>
-          {new Date().getDate() - new Date(item.created_at).getDate() != 0 ? <>Posted {new Date().getDate() - new Date(item.created_at).getDate()} days ago </> : <>Posted today </>}
-            in <b>{props.user.location}</b><br></br><br></br>
-            <p>Condition: {item.condition}</p>
+          
+            
             {item.user ? 
-              <div>
+              <div> 
+                <br></br>
+                <h1>{item.name}</h1>
+                <h2>${item.price}</h2>
+            
+                {new Date().getDate() - new Date(item.created_at).getDate() != 0 ? <>Posted {((new Date() - new Date(item.created_at))/(1000*60*60*24)).toFixed(0)} days ago </> : <>Posted today </>} in <b>{item.user.location}</b><br></br><br></br>
+                {/* {((new Date() - new Date(item.created_at))/(1000*60*60*24)).toFixed(0)} */}
+                
+                <p>Condition: {item.condition}</p>
                 <p>Category: {item.category.name}</p>
                 {item.user.id == props.user.id ? 
                 <Button size="small" variant="outlined" color="secondary" onClick={handleDelete}>Delete Item</Button> : null}

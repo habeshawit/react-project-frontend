@@ -35,7 +35,7 @@ class Logout extends Component {
   };
 
   redirect = () => {
-      this.props.history.push('/items')
+      this.props.history.push('/')
   }
 
   handleErrors = () => {
