@@ -40,17 +40,31 @@
   }
 }
 
+
 .home-container{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+
+
   text-align: center;
   /* color: rgb(12, 117, 117); */
   color: white;
-  margin-top: 200px;
+  /* margin-top: 250px; */
   text-shadow: 0 0 10px #000; /* horizontal-offset vertical-offset 'blur' colour */
   -moz-text-shadow: 0 0 2px #000;
   -webkit-text-shadow: 0 0 2px #000;
+
+  
 }
 
 .home-container h1{
+  /* margin: auto;
+  width: 50%; */
+  /* border: 3px solid green; */
+  padding: 10px;
   font-size: 60px;
   /* font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif; */
   font-family:fantasy ;
@@ -59,6 +73,10 @@
 }
 
 .home-container p{
+  margin: auto;
+  /* width: 50%; */
+  /* border: 3px solid green; */
+  padding: 10px;
   font-size: 30px;
 }
 
@@ -73,13 +91,40 @@
   font-size: large;
 }
 
-.jumbotron2{
-  background-image: url("./images/10.jpg");
+.home-container a:hover{
+  text-decoration:none;
+}
 
-  background-position: center center;
+.jumbotron2{
+  background-image: url("./images/13.jpg");
+  margin: auto;
+  width: 50%;
+  border: 3px solid green;
+  padding: 10px;
+  /* background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  height: 747px;
+  height: auto;
+  flex: 1 0 auto; */
+  /* height: 100% */
+
+    /* The image used */
+    /* background-image: url("img_girl.jpg"); */
+
+    /* Full height */
+    height: 100vh!important;
+  
+    /* Center and scale the image nicely */
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    position: absolute;
+    width: 100%;
+    top:0;
+    /* right:20%; */
+    z-index: -100;
+    
 }
 @media (min-width: 768px) {
   .jumbotron {
@@ -93,6 +138,7 @@
 }
 
 
+/* 
 footer {
   padding-top: 3rem;
   padding-bottom: 3rem;
@@ -104,12 +150,11 @@ footer p {
 
 .bg-dark {
   background-color: #4e79a5 !important;
-}
-
-/* body { padding-top: 60px; }
-@media screen and (max-width: 768px) {
-    body { padding-top: 0px; }
 } */
+
+body, html {
+  height: 100%;
+}
 
 /* .fixed-header{
     background-color:white;    
@@ -119,6 +164,8 @@ footer p {
     z-index: 1100;
     flex-direction: column;
 } */
+
+
 
 .navbar-brand{
   font-size:30px!important;
@@ -130,11 +177,11 @@ footer p {
   font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
   padding-bottom: 0rem!important;
   padding-top: 0rem!important;
+  font-size: 18px;
+  vertical-align: middle;
 }
 
-.color-nav{
-  font-size: 18px;
-}
+
 
 .navbar a{
   color: white!important;
@@ -153,6 +200,7 @@ footer p {
   padding: 0px 24px; */
 
   margin-top: 25px;
+  margin: 35px;
   /* margin: 0px auto; */
   padding: 0px 27px;
 }
@@ -214,15 +262,33 @@ footer p {
   flex-direction: column;
   justify-content: space-between; */
 
+  mix-blend-mode: multiply;
+
   color: inherit;
   cursor: pointer;
   transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
   text-decoration: none;
-  
+
   font-size: 1rem;
   font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
+
+
 }
 
+.item-box-inner2:hover{
+  transform: translateY(0) scale(1.05);
+  filter: drop-shadow(8px 8px 10px gray);
+  transition-delay:85ms;
+}
+
+/* .item-box img:after{
+  background-color: #f2f2f2;
+  content: "";
+  height: 10px;
+  position: absolute;
+  top: 390px;
+  width: 100%;
+} */
 /* .item-box{
   font-size: 0.875rem;
   font-family:Lato,"Helvetica Neue",Arial,sans-seri;
@@ -282,6 +348,7 @@ footer p {
     justify-content: center;
     background-color: #fafafa;
 
+    border-radius: 1rem;
     
 }
 
@@ -523,4 +590,48 @@ img.card-text {
     border-radius: 4px;
 
     width: 100%;
+}
+
+.footer{
+    background-color: "purple";
+    font-size: "20px";
+    color: "white";
+    border-top: "1px solid #E7E7E7";
+    text-align: "center";
+    padding: "20px";
+    position: "fixed";
+    left: "0";
+    bottom: "0";
+    height: "60px";
+    width: "100%";
+/* 
+    display: "block";
+    padding: "20px";
+    height: "60px";
+    width: "100%"; */
+
+}
+
+.item-form{
+  /* margin-top: 50px; */
+  max-width: 700px!important;
+
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  /* bring your own prefixes */
+  transform: translate(-50%, -50%);
+}
+
+::-webkit-file-upload-button {
+  left: 43%;
+  margin:10px;
+  border: 1px solid #ccc;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 2rem;
+  color: teal;
+  padding: .5rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
 }

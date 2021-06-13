@@ -23,16 +23,17 @@ class ItemsForm extends Component{
         condition: 'New',
         description: '',
         price: '',
-        image_url: '',
+        // image_url: '',
         // images: []
+        image: null
     }
 
-    //if adding image upload
-    // handleUpload= (event) => {
-    //     this.setState({
-    //         [event.target.name]: event.target.files[0]
-    //     })
-    // }
+    // if adding image upload
+    handleUpload= (event) => {
+        this.setState({
+            [event.target.name]: event.target.files[0]
+        })
+    }
 
     handleChange= (event) => {
         this.setState({
@@ -40,34 +41,48 @@ class ItemsForm extends Component{
         })
     }
 
+    onImageChange = event => { 
+        this.setState({ image: event.target.files[0] });
+        // debugger
+      };
+
     handleSubmit = (event) => {
 
         // this.state.user_id = this.props.user.id
         
         event.preventDefault()
-
-        //If adding image upload
-        // const data = new FormData
+// debugger
+        // If adding image upload
+        const data = new FormData
         
-        // data.append('item[user_id]', this.state.user_id)
-        // data.append('item[category_id]', this.state.category_id)
-        // data.append('item[name]', this.state.name)
-        // data.append('item[condition]', this.state.condition)
-        // data.append('item[description]', this.state.description)
-        // data.append('item[price]', this.state.price)
+        data.append('item[user_id]', this.props.user.id)
+        data.append('item[category_id]', this.state.category_id)
+        data.append('item[name]', this.state.name)
+        data.append('item[condition]', this.state.condition)
+        data.append('item[description]', this.state.description)
+        data.append('item[price]', this.state.price)
         // data.append('item[image_url]', this.state.image_url)
-        // data.append('item[images]', this.state.images)
+        data.append('item[image]', this.state.image)
 
 
-        this.props.createItem({...this.state, user_id: this.props.user.id}, this.props.history)
+        // this.props.createItem({...this.state, user_id: this.props.user.id}, this.props.history)
+        this.props.createItem(data, this.props.history)
       
+    // fetch('http://localhost:3001/api/v1/items', {
+    //   method: 'POST',
+    //   body: data
+    // })
+    // .catch(error=>console.log(error));
+
+        // debugger
         this.setState({
             category_id: 1,
             name: '',
             condition: 'New',
             description: '',
             price: '',
-            image_url: '',
+            // image_url: '',
+            image: null
             // images: []
         })        
     }
@@ -80,14 +95,14 @@ class ItemsForm extends Component{
         },this)
         
         return(
-            <Container  >
+            <Container className="item-form" >
             <div>
 
                 <br></br>
                 <strong>Post new item:</strong><hr></hr>
     
                 <Form onSubmit={this.handleSubmit}>
-              
+                    
             {/* <ImageUploader
                 withIcon={true}
                 buttonText='Choose images'
@@ -102,21 +117,13 @@ class ItemsForm extends Component{
                         <Form.Control type="file" name="images" accept="image/*" multiple={true} defaultValue={this.state.images} onChange={this.handleUpload}/>
                         </Col>
                     </Form.Group> */}
+
+                    
                     {/* <Form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
                         <Col sm="10">
                         <Form.Control type="hidden" name="user_id" defaultValue={this.state.user_id} onSubmit={this.handleChange}/>
                         </Col>
                     </Form.Group> */}
-                    <Form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
-                        <Form.Label column sm="2">
-                            Category
-                        </Form.Label>
-                        <Col sm="10">
-                            <select name="category_id" onChange={this.handleChange}>
-                                    {categories}
-                            </select>
-                        </Col>
-                    </Form.Group>
                     <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
                         <Form.Label column sm="2">
                         Item Name
@@ -127,10 +134,20 @@ class ItemsForm extends Component{
                     </Form.Group>
                     <Form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
                         <Form.Label column sm="2">
+                            Category
+                        </Form.Label>
+                        <Col sm="10">
+                            <select name="category_id" onChange={this.handleChange} className="custom-select">
+                                    {categories}
+                            </select>
+                        </Col>
+                    </Form.Group>
+                    <Form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
+                        <Form.Label column sm="2">
                             Condition
                         </Form.Label>
                         <Col sm="10">
-                            <select name="condition" onChange={this.handleChange}>
+                            <select name="condition" onChange={this.handleChange} className="custom-select">
                                 <option value="New">New</option>
                                 <option value="Open box (never used)">Open box (never used)</option>
                                 <option value="Reconditioned/Refurbished">Reconditioned/Refurbished</option>
@@ -145,7 +162,7 @@ class ItemsForm extends Component{
                         Description
                         </Form.Label>
                         <Col sm="10">
-                            <Form.Control as="textarea" rows={3} placeholder="Description of item" value={this.state.description} name="description" onChange={this.handleChange}/>
+                            <Form.Control as="textarea" rows={3} placeholder="Sell faster with a description!" value={this.state.description} name="description" onChange={this.handleChange}/>
                         </Col>
                     </Form.Group>
                     <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
@@ -153,17 +170,20 @@ class ItemsForm extends Component{
                         Price
                         </Form.Label>
                         <Col sm="10">
-                        <Form.Control type="text" placeholder="Price of item" value={this.state.price} name="price" onChange={this.handleChange} />
+                        <Form.Control type="text" placeholder="$0" value={this.state.price} name="price" onChange={this.handleChange} />
                         </Col>
                     </Form.Group>
-                    <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
+                    {/* <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
                         <Form.Label column sm="2">
                         Image URL
                         </Form.Label>
                         <Col sm="10">
                         <Form.Control type="text" placeholder="Add an image" value={this.state.image_url} name="image_url" onChange={this.handleChange} />
                         </Col>
-                    </Form.Group>
+                    </Form.Group> */}
+
+                    <input type="file" accept="image/*" multiple={false} onChange={this.onImageChange}/>
+ 
                     <hr></hr>
                     <Button size="small" variant="outlined" color="primary" type="submit">
                         Post Item

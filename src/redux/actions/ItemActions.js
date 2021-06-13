@@ -16,13 +16,14 @@ export const createItem = (newItemData, history) =>{
     return(dispatch) => {        
         fetch('http://localhost:3001/api/v1/items', {
             //comment out if adding image upload
-            headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-            },
+            // headers: {
+            //     'Content-Type': 'application/json',
+            //     'Accept': 'application/json'
+            // },
             method: 'POST',
             //change body to just newItemData if image upload
-            body: JSON.stringify({item: newItemData})
+            // body: JSON.stringify({item: newItemData})
+            body: newItemData
         })
         .then((response) => {
             
@@ -34,13 +35,13 @@ export const createItem = (newItemData, history) =>{
         })
         .then((item) => 
             (dispatch({type: 'CREATE_ITEM', payload: item}),
-            history.push('/items'))
+            history.push(`/items/${item.item.id}`))
         )
         .catch((err) => {
-            // debugger
+            debugger
             dispatch({
                 type: 'ERROR', 
-                payload: "Error creating item. Please enter a name"})
+                payload: "Error posting item. Please enter all information"})
         })
         
             

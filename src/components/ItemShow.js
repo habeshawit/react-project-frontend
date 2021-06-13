@@ -26,9 +26,9 @@ function ItemShow(props){
           
           <div className="col" >
             <br></br>
-            <img src={item.image_url}  width="550" height="550"></img> 
-            {/* {item.images ? 
-              <div>{item.images.map(image => <div><img src={image} className="background-image"  alt="background" /></div>)}</div>: null} */}  
+            {/* <img src={item.image_url}  width="550" height="550"></img>  */}
+            {item.image ? 
+              <img src={`http://localhost:3001/${item.image.url}`} width="550" height="550" alt="image" /> : <img src={item.image_url}  width="550" height="550"></img> }  
           </div>
 
           <div className="col">
@@ -52,7 +52,7 @@ function ItemShow(props){
 
                   <div className="row">
                     <div className="avatar">
-                      <img alt="Joel" src="https://d2fa3j67sd1nwo.cloudfront.net/images/default-avatar-small.png" class="MuiAvatar-img" width="50" height="50" ></img>
+                      <img alt="Joel" src="https://d2fa3j67sd1nwo.cloudfront.net/images/default-avatar-small.png" className="MuiAvatar-img" width="50" height="50" ></img>
                     </div>
                     <div>
                       <p><b> Sold by: {item.user.username}</b></p>
