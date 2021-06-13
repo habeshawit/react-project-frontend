@@ -12,6 +12,7 @@ import ItemsApi from './components/ItemsApi'
 import ItemShow from './components/ItemShow';
 import CategoriesList from './components/CategoriesList';
 import CategoryShow from './components/CategoryShow'
+import UserItems from './components/UserItems'
 import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
@@ -69,7 +70,9 @@ class App extends Component {
               <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">
                   <Nav.Link href="/items">Items For Sale</Nav.Link>
-                  <Nav.Link href="/items/new">Post Item</Nav.Link>    
+                  {this.state.user.username?<>
+                    <Nav.Link href="/items/new">Post Item</Nav.Link>    
+                    <Nav.Link href="/myitems">My Item</Nav.Link>   </>:null}
                 </Nav>
               </Navbar.Collapse>
               {this.state.user.username? <Navbar><strong> Welcome, {this.state.user.username }</strong>  <Nav.Link href="/logout"><strong className="nav-color" style={{ textDecoration: 'none', color: 'white' }}>Logout</strong></Nav.Link></Navbar> : null}
@@ -95,6 +98,8 @@ class App extends Component {
               <Route exact path='/login' render={props => (<Login {...props} handleLogin={this.handleLogin} />)}/>
               <Route exact path='/signup' render={props => (<Signup {...props} handleLogin={this.handleLogin} />)}/>
               <Route exact path='/logout' render={props => (<Logout {...props} user={this.state.user} handleLogout={this.handleLogout} />)}/> 
+              <Route exact path={`/myitems`} render={props => (<UserItems {...props} user={this.state.user} />)}/> 
+
             </Switch>
           </BrowserRouter>
         {/* </Container>       */}
