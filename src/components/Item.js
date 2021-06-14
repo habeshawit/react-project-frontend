@@ -10,7 +10,6 @@ const Item = ({user, id, image, image_url, name, price, userId, handleDelete}) =
       <div className="item-box-inner">
           <Link to={`/items/${id}`}>
             <div className="item-box-inner2">
-                {/* <img className="image" src={image_url} className="item-img"></img > */}
                 {image ? 
                 <img className="image" src={`http://localhost:3001/${image.url}`} className="item-img" /> : <img className="image" src={image_url} className="item-img"></img > }  
             </div>  

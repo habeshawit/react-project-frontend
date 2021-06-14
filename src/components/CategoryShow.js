@@ -1,8 +1,6 @@
 import React, {useEffect } from 'react'
 import {getCategories} from '../redux/actions/CategoryActions'
 import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
-import Button from '@material-ui/core/Button';
 import Item from './Item'
 
 function CategoriesShow(props){

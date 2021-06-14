@@ -9,7 +9,6 @@ import Button from '@material-ui/core/Button';
 import Container from 'react-bootstrap/Container';
 
 import ImageUploader from 'react-images-upload';
-import { FormatListBulletedSharp } from '@material-ui/icons';
 
 class ItemsForm extends Component{
    
@@ -23,17 +22,9 @@ class ItemsForm extends Component{
         condition: 'New',
         description: '',
         price: '',
-        // image_url: '',
-        // images: []
         image: null
     }
 
-    // if adding image upload
-    handleUpload= (event) => {
-        this.setState({
-            [event.target.name]: event.target.files[0]
-        })
-    }
 
     handleChange= (event) => {
         this.setState({
@@ -43,16 +34,11 @@ class ItemsForm extends Component{
 
     onImageChange = event => { 
         this.setState({ image: event.target.files[0] });
-        // debugger
       };
 
     handleSubmit = (event) => {
 
-        // this.state.user_id = this.props.user.id
-        
         event.preventDefault()
-// debugger
-        // If adding image upload
         const data = new FormData
         
         data.append('item[user_id]', this.props.user.id)
@@ -61,29 +47,17 @@ class ItemsForm extends Component{
         data.append('item[condition]', this.state.condition)
         data.append('item[description]', this.state.description)
         data.append('item[price]', this.state.price)
-        // data.append('item[image_url]', this.state.image_url)
         data.append('item[image]', this.state.image)
 
-
-        // this.props.createItem({...this.state, user_id: this.props.user.id}, this.props.history)
         this.props.createItem(data, this.props.history)
       
-    // fetch('http://localhost:3001/api/v1/items', {
-    //   method: 'POST',
-    //   body: data
-    // })
-    // .catch(error=>console.log(error));
-
-        // debugger
         this.setState({
             category_id: 1,
             name: '',
             condition: 'New',
             description: '',
             price: '',
-            // image_url: '',
             image: null
-            // images: []
         })        
     }
 
@@ -111,19 +85,6 @@ class ItemsForm extends Component{
                 maxFileSize={5242880}
                 filename={this.state.images}
             /> */}
-        
-                    {/* <Form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
-                        <Col sm="10">
-                        <Form.Control type="file" name="images" accept="image/*" multiple={true} defaultValue={this.state.images} onChange={this.handleUpload}/>
-                        </Col>
-                    </Form.Group> */}
-
-                    
-                    {/* <Form.Group as={Row} className="mb-3" controlId="formPlaintextEmail">
-                        <Col sm="10">
-                        <Form.Control type="hidden" name="user_id" defaultValue={this.state.user_id} onSubmit={this.handleChange}/>
-                        </Col>
-                    </Form.Group> */}
                     <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
                         <Form.Label column sm="2">
                         Item Name
@@ -173,15 +134,6 @@ class ItemsForm extends Component{
                         <Form.Control type="text" placeholder="$0" value={this.state.price} name="price" onChange={this.handleChange} />
                         </Col>
                     </Form.Group>
-                    {/* <Form.Group as={Row} className="mb-3" controlId="formPlaintextPassword">
-                        <Form.Label column sm="2">
-                        Image URL
-                        </Form.Label>
-                        <Col sm="10">
-                        <Form.Control type="text" placeholder="Add an image" value={this.state.image_url} name="image_url" onChange={this.handleChange} />
-                        </Col>
-                    </Form.Group> */}
-
                     <input type="file" accept="image/*" multiple={false} onChange={this.onImageChange}/>
  
                     <hr></hr>

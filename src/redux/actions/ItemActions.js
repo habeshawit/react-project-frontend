@@ -12,17 +12,10 @@ export const getItems = () => {
 }
 
 export const createItem = (newItemData, history) =>{  
-    //   debugger
     return(dispatch) => {        
         fetch('http://localhost:3001/api/v1/items', {
-            //comment out if adding image upload
-            // headers: {
-            //     'Content-Type': 'application/json',
-            //     'Accept': 'application/json'
-            // },
+            
             method: 'POST',
-            //change body to just newItemData if image upload
-            // body: JSON.stringify({item: newItemData})
             body: newItemData
         })
         .then((response) => {
@@ -55,8 +48,22 @@ export const deleteItem = (itemId, history) => {
         })
         .then((res) => res.json())
         .then((item) => 
-            (dispatch({type: 'DELETE_ITEM', payload: itemId}),
-            history.push('/items'))
+            (dispatch({type: 'DELETE_ITEM', payload: itemId})
+            ,history.push('/items')
+            )
+        )
+    }
+}
+
+export const editItem = (item, history) => {
+    return(dispatch) => {        
+        fetch(`http://localhost:3001/api/v1/items/${item.id}`, {
+            method: 'PATCH'
+        })
+        .then((res) => res.json())
+        .then((item) => 
+            (dispatch({type: 'EDIT_ITEM', payload: item}),
+            history.push(`/items/${item.id}`))
         )
     }
 }

@@ -10,6 +10,7 @@ import ItemsList from './components/ItemsList'
 import ItemsForm from './components/ItemsForm'
 import ItemsApi from './components/ItemsApi'
 import ItemShow from './components/ItemShow';
+import EditForm from './components/EditForm';
 import CategoriesList from './components/CategoriesList';
 import CategoryShow from './components/CategoryShow'
 import UserItems from './components/UserItems'
@@ -91,6 +92,7 @@ class App extends Component {
               <Route exact path='/items' render={props => (<ItemsList {...props} user={this.state.user} />)}/>
               <Route exact path='/items/new' render={props => (<ItemsForm {...props} user={this.state.user} />)}/>
               <Route exact path='/items/:id' render={props => (<ItemShow {...props} user={this.state.user} />)}/>
+              <Route exact path='/items/:id/edit' render={props => (<EditForm {...props} user={this.state.user} />)}/>
               <Route path='/items/api' component={ItemsApi}/>
               <Route exact path='/categories' component={CategoriesList}/>
               <Route exact path='/categories/:id' render={props => (<CategoryShow {...props} user={this.state.user} />)}/>

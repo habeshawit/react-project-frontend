@@ -9,6 +9,8 @@ export default (state = [], action) => {
             }           
         case 'DELETE_ITEM':                 
             return state.filter(i => i.id != action.payload)
+        case 'EDIT_ITEM':                 
+            return [...state, action.payload]
         case 'ERROR':
             {
             alert(action.payload)

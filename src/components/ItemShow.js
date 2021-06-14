@@ -1,7 +1,10 @@
 import React, {useState, useEffect } from 'react'
 import {deleteItem} from '../redux/actions/ItemActions'
+import EditForm from './EditForm'
 import { connect } from 'react-redux'
 import Button from '@material-ui/core/Button';
+import {Link} from 'react-router-dom'
+
 
 function ItemShow(props){
   
@@ -26,7 +29,6 @@ function ItemShow(props){
           
           <div className="col" >
             <br></br>
-            {/* <img src={item.image_url}  width="550" height="550"></img>  */}
             {item.image ? 
               <img src={`http://localhost:3001/${item.image.url}`} width="550" height="550" alt="image" /> : <img src={item.image_url}  width="550" height="550"></img> }  
           </div>
@@ -41,12 +43,11 @@ function ItemShow(props){
                 <h2>${item.price}</h2>
             
                 {new Date().getDate() - new Date(item.created_at).getDate() != 0 ? <>Posted {((new Date() - new Date(item.created_at))/(1000*60*60*24)).toFixed(0)} days ago </> : <>Posted today </>} in <b>{item.user.location}</b><br></br><br></br>
-                {/* {((new Date() - new Date(item.created_at))/(1000*60*60*24)).toFixed(0)} */}
-                
+ 
                 <p>Condition: {item.condition}</p>
                 <p>Category: {item.category.name}</p>
-                {item.user.id == props.user.id ? 
-                <Button size="small" variant="outlined" color="secondary" onClick={handleDelete}>Delete Item</Button> : null}
+                {item.user.id == props.user.id ? <>
+                <Button size="small" variant="outlined" color="secondary" onClick={handleDelete}>Delete Item</Button></> : null}
                 <hr></hr>
                 <h4>Seller Contact Info: </h4>
 
