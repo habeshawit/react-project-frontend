@@ -73,7 +73,7 @@ class App extends Component {
                   <Nav.Link href="/items">Items For Sale</Nav.Link>
                   {this.state.user.username?<>
                     <Nav.Link href="/items/new">Post Item</Nav.Link>    
-                    <Nav.Link href="/myitems">My Item</Nav.Link>   </>:null}
+                    <Nav.Link href="/myitems">My Items</Nav.Link>   </>:null}
                 </Nav>
               </Navbar.Collapse>
               {this.state.user.username? <Navbar><strong> Welcome, {this.state.user.username }</strong>  <Nav.Link href="/logout"><strong className="nav-color" style={{ textDecoration: 'none', color: 'white' }}>Logout</strong></Nav.Link></Navbar> : null}

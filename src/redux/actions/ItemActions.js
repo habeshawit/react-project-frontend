@@ -31,7 +31,6 @@ export const createItem = (newItemData, history) =>{
             history.push(`/items/${item.item.id}`))
         )
         .catch((err) => {
-            debugger
             dispatch({
                 type: 'ERROR', 
                 payload: "Error posting item. Please enter all information"})

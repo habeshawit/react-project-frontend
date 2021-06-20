@@ -58,7 +58,6 @@ data.append('item[user_id]', props.user.id)
         // data.append('item[price]', item.price)
         // data.append('item[image]', item.image)
 
-debugger
         props.editItem(data, props.history)
       
         // setItem({

@@ -9,7 +9,7 @@ function Home (props) {
         <div className="jumbotron2"></div>
           <div className="home-container">
             <h1>Welcome to Simple Sales</h1> 
-            <p>Moving or simply looking for a change? Buy and sell furniture the easy way...</p>   
+            <p>Moving or simply looking for a change? Buy and sell the easy way...</p>   
               <div>
                 <br></br>
                   {props.user.id ? 
