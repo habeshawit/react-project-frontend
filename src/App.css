@@ -1,12 +1,7 @@
 .App {
   text-align: left;
   margin: 50px;
-}
-
-.container {
-  max-width: 1200px;
-  /* background-color: lightgray; */
-  padding: 30px;
+  background-color: black;
 }
 
 .App-logo {
@@ -45,58 +40,128 @@
   }
 }
 
-.jumbotron {
-  padding-top: 0rem;
-  padding-bottom: 0rem;
-  margin-bottom: 0;
-  background-color: lightblue;
+
+.home-container{
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  color: white;
+  text-shadow: 0 0 10px #000; /* horizontal-offset vertical-offset 'blur' colour */
+  -moz-text-shadow: 0 0 2px #000;
+  -webkit-text-shadow: 0 0 2px #000;
+}
+
+.home-container h1{
+  margin: auto;
+  width: 70%;
+  padding: 10px;
+  font-size: 60px;
+  font-family:fantasy ;
+  letter-spacing: 1rem;
+  
+}
+
+.home-container p{
+  margin: auto;
+  width: 1200px!important;
+  padding: 10px;
+  font-size: 28px;
+}
+
+.home-container button{
+  margin: 30px;
+  background-color: teal;
+  border-radius: 1.5rem;
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  padding-right: 1.5rem;
+  padding-left: 1.5rem;
+  font-size: large;
+}
+
+.home-container a:hover{
+  text-decoration:none;
+}
+
+.jumbotron2{
+  background-image: url("./images/11.jpg");
+  margin: auto;
+  width: 100%;
+  border: 3px solid green;
+  padding: 10px;
+
+  /* Full height */
+  height: 100vh!important;
+
+  /* Center and scale the image nicely */
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url("https://assets.entrepreneur.com/content/3x2/2000/20191219170611-GettyImages-1152794789.jpeg");
+
+  /* position: absolute;
+  width: 100%;
+  top:0;
+  z-index: -100; */
+    
 }
 @media (min-width: 768px) {
   .jumbotron {
     padding-top: 1rem;
     padding-bottom: 1rem;
   }
-  .container {
-    max-width: 1400px;
-  }
-
-  /* .card-deck > .card {
-    width: 29%;
-    flex-wrap: wrap;
-    flex: initial;
-  } */
 }
 
-.jumbotron p:last-child {
-  margin-bottom: 0;
+body, html {
+  height: 100%;
 }
 
-.jumbotron h1 {
-  font-weight: 300;
+.navbar-brand{
+  font-size:30px!important;
 }
 
-.jumbotron .container {
-  max-width: 35rem;
+.color-nav{
+  background-color: darkcyan;
+  color: white;
+  font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  padding-bottom: 0rem!important;
+  padding-top: 0rem!important;
+  font-size: 18px;
+  vertical-align: middle;
 }
 
-footer {
-  padding-top: 3rem;
-  padding-bottom: 3rem;
+
+
+.navbar a{
+  color: white!important;
 }
 
-footer p {
-  margin-bottom: 0.25rem;
+.d-flex{
+  width: 300px;
 }
 
-.bg-dark {
-  background-color: #4e79a5 !important;
+
+.container2{
+  margin-top: 25px;
+  margin: 35px;
+  padding: 0px 27px;
 }
 
-.card {
+.btn.btn-warning{
+  padding-bottom: 3px;
+  padding-top: 3px;
+}
+
+.no-right-padding {
+  padding-right: 0 !important;
+}
+
+.no-left-padding {
+  padding-left: 0 !important;
+}
+
+.card.h-100{
   position: relative;
   display: -ms-flexbox;
   display: flex;
@@ -108,43 +173,128 @@ footer p {
   background-clip: border-box;
   border: 1px solid rgba(0, 0, 0, 0.125);
   border-radius: 0.25rem;
-  /* height: 100%; */
-  border: none
+  border-style:groove;
 }
 
-img.card-img-top {
+.card img{
   width: 100%;
-  height: 60%;
+  height: 17vw;
   object-fit: cover;
 }
 
-.h5,
-h5 {
+.item-box{
+  mix-blend-mode: multiply;
+  color: inherit;
+  cursor: pointer;
+  transition: color 250ms cubic-bezier(0.4, 0, 0.2, 1) 0ms;
+  text-decoration: none;
   font-size: 1rem;
+  font-family:-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif
 }
 
-.card-body {
-  -ms-flex: 1 1 auto;
-  flex: 1 1 auto;
-  min-height: 1px;
-  padding: 1rem;
-  line-height: 8px;
-  margin-bottom: -8px;
+.item-box:hover{
+  transform: translateY(0) scale(1.05);
+  box-shadow: 8px 8px 10px gray;
+  transition-delay:85ms;
+  border-radius: 1rem;
+  background-color: rgb(247, 244, 244);
+  
 }
 
-#image_wrap {
-  /* dimensions */
-  width: 700px;
-  padding: 15px 0;
-
-  /* centered */
+.item-box-text{
   text-align: center;
+  margin-left: 8px;
+  margin-right: 8px;
+}
 
-  /* some "skinning" */
-  background-color: #efefef;
-  border: 2px solid #fff;
-  outline: 1px solid #ddd;
-  -moz-ouline-radius: 4px;
+.item-box a:hover, a:visited, a:link, a:active{
+  color: black;
+  text-decoration: none;
+}
+
+.item-box-inner{
+  width: 100%;
+  position: relative;
+}
+
+.item-box-inner2{
+  display: block;
+  overflow: hidden;
+  position: relative;
+  padding-bottom: 100%;
+  cursor: pointer;
+}
+
+.item-img{
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    bottom: 0;
+    height: 100%;
+    display: flex;
+    position: absolute;
+    object-fit: cover;
+    align-items: center;
+    justify-content: center;
+    background-color: #fafafa;
+    border-radius: 1rem;
+}
+
+.col-sm-3{
+  padding: 2px!important;
+  font-family: "Karma", sans-serif;
+}
+
+.col-sm-3.h3{
+  font-weight: 400;
+  margin: 10px 0;
+  font-size: 1rem!important;
+}
+
+.col-sm-3.p {
+  font-size: small;
+  display: block;
+  margin-block-start: 1em;
+  margin-block-end: 1em;
+  margin-inline-start: 0px;
+  margin-inline-end: 0px;
+} 
+
+.item-box h5{
+  margin-top: 0.25rem;
+  margin-bottom: 0.25rem;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  /* font-size: 18px!important;  */
+}
+
+.item-box-text{
+  padding: 8px 0px;
+}
+
+.user-location{
+  color: #8a8a8a;
+}
+
+.item-box ul {
+  list-style-type: none;
+  font-size: 14px;
+  position: absolute;
+  bottom: 0;
+  margin-left: -15px;
+}
+
+.btnn {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+  text-align: center;
+}
+
+.h5,h5{
+  font-size: 1rem!important;
+  font-weight:bolder!important;
 }
 
 .center {
@@ -154,60 +304,104 @@ h5 {
   width: 50%;
 }
 
-/* .modal {
-  text-align: center;
-} */
-
-img.card-text {
-  /* you need to match the shadow color to your background or image border for the desired effect*/
-  box-shadow: 0 0 8px 8px white inset;
-}
-
-.modal-content-detail {
-  position: relative;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  width: 100%;
-  pointer-events: auto;
-  background-color: lightgray;
-  background-clip: padding-box;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 0.3rem;
-  outline: 0;
-  box-shadow: 0 0 8px 8px white inset;
-  padding: 20px;
-}
-
-.modal-content {
-  position: relative;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  width: 100%;
-  pointer-events: auto;
-  background-color: #fff;
-  background-clip: padding-box;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 0.3rem;
-  outline: 0;
-  padding: 20px;
-  padding-bottom: 0px;
+.col{
+  margin-bottom: 25px;
 }
 
 .form{
   max-width:500px;
-  margin-left: 35px;
-  /* margin-left: 0px; */
-  
+  margin-left: 35px;  
 }
 
-/* body {
-  background-color: #282c34;
-  color: white;
-  padding: 40px;
-  font-family: Arial;
-  text-align: center;
+.container-signup{
+  max-width: 550px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.description-info{
+  width:1000px;
+  margin-left: 25px;
+}
+
+.avatar img{
+  border-radius: 2rem;
+}
+
+.avatar{
+  padding: 2rem;
+}
+
+
+.item-grid{
+  display: grid;
+  grid-gap: 24px;
+  grid-template-columns: repeat(auto-fill, minmax(208px, 1fr));
+}
+
+
+.categoryNav{
+  display: flex;
+  white-space: nowrap;
+
+}
+/* 
+.cat{
+
+  display: flex;
+  min-width: 0;
+  flex-shrink: 0;
+  margin-right: 32px;
+
+
 } */
+
+.search-bar{
+
+  height: auto;
+  padding: 7px 16px;
+  z-index: 1;
+  position: relative;
+  font-size: 1rem;
+  caret-color: #00a87e;
+  line-height: 1.5;
+  border: 1px solid #e2e2e2;
+  position: relative;
+  border-radius: 4px;
+  width: 100%;
+}
+
+.footer{
+    background-color: "purple";
+    font-size: "20px";
+    color: "white";
+    border-top: "1px solid #E7E7E7";
+    text-align: "center";
+    padding: "20px";
+    position: "fixed";
+    left: "0";
+    bottom: "0";
+    height: "60px";
+    width: "100%";
+}
+
+.item-form{
+  max-width: 700px!important;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+::-webkit-file-upload-button {
+  left: 43%;
+  margin:10px;
+  border: 1px solid #ccc;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 2rem;
+  color: teal;
+  padding: .5rem;
+  padding-right: 1rem;
+  padding-left: 1rem;
+}
