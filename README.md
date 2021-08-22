@@ -22,7 +22,7 @@ Once you have the backend running, in the frontend project directory, you can ru
 
 ### `yarn start` or `npm start`
 
-This runs the app in the development mode.\
+This runs the app in the development mode.
 
 You can also open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
