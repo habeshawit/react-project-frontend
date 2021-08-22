@@ -5,6 +5,9 @@ To get started, you will need to also clone the backend repo at: https://github.
 ## Installation
 
 ### Backend
+
+In the backend repository, open a terminal and run the following commands to set up the back end database:
+
 ```
 $ git clone 
 $ bundle install
@@ -15,7 +18,7 @@ $ rails s
 
 ### Frontend
 
-Once you have the backend running, in the project directory, you can run:
+Once you have the backend running, in the frontend project directory, you can run:
 
 ### `yarn start` or `npm start`
 
